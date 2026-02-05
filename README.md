@@ -139,6 +139,37 @@ node spotify/currently-playing-to-deemix.js
 | **Spotify to Deemix** | `spotify/spotify-to-deemix.sh` | `spotify/spotify-to-deemix.applescript` | Search Spotify → Auto-paste to Deemix |
 | **Discography to Deemix** | `discography/discography-to-deemix.sh` | `discography/discography-to-deemix.applescript` | Get all albums → Bulk paste to Deemix |
 
+#### Keyboard Maestro Macros
+
+Comprehensive macros for [Keyboard Maestro](https://www.keyboardmaestro.com/) included in `Macros/` folder:
+
+| Macro | Description |
+|-------|-------------|
+| **Download** | Activate Deemix, trigger download with hotkey |
+| **Discography for Deemix** | Full discography downloader - prompts for artist/album, fetches entire catalog, auto-pastes to Deemix |
+
+<details>
+<summary>Click to expand Discography Macro Details</summary>
+
+The **Discography for Deemix** macro provides a complete workflow:
+
+1. **Prompts** you for Artist and Album name (uses album to identify correct artist among duplicates)
+2. **Fetches** complete discography from Deezer (albums + EPs only, excludes singles by default)
+3. **Copies** all album URLs to clipboard automatically
+4. **Activates** Deemix and pastes all URLs for bulk downloading
+5. **Notifies** you when complete
+
+**Features:**
+- Artist disambiguation (finds correct "America" or "Boston" among duplicate band names)
+- Smart filtering (albums + EPs only, singles excluded)
+- Bulk paste (all URLs pasted at once for simultaneous download)
+- Handles large discographies (100+ albums via API pagination)
+- Duplicate filtering removes duplicate album titles
+
+**Setup:** Update the macro's `Execute Shell Script` path to your DeemixKit location.
+
+</details>
+
 #### Special Scripts
 
 | Script | Purpose | Language |
@@ -190,7 +221,9 @@ echo "Artist - Album" | python3 deezer/deezer-resolver.py
 <details>
 <summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Keyboard Maestro" width="22"> Keyboard Maestro Integration</summary>
 
-Example macro for album downloads:
+**Ready-to-use macros included** in `Macros/` folder - just import and use!
+
+For custom macros, here's a basic example for album downloads:
 
 1. **Prompt for Input**: Artist name
 2. **Prompt for Input**: Album name
@@ -200,7 +233,7 @@ Example macro for album downloads:
    ```
 4. **Display Text**: "Album added to Deemix!"
 
-See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples.
+See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples and the Macros/ folder for complete pre-built workflows.
 
 </details>
 
