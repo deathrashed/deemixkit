@@ -221,7 +221,8 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 
 ---
 
-## ϟ Troubleshooting
+<details>
+<summary>ϟ Troubleshooting</summary>
 
 #### "Spotify API credentials not configured"
 
@@ -256,6 +257,8 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 # Install pyperclip library
 pip install pyperclip
 ```
+
+</details>
 
 ---
 
@@ -375,21 +378,25 @@ done
 
 ---
 
-## ϟ Acknowledgments
+<details>
+<summary>ϟ Acknowledgments</summary>
 
 - [Deemix](https://deemix.org) - Music downloader application
 - [Spotify Web API](https://developer.spotify.com/) - Music service API
 - [Deezer API](https://developers.deezer.com/) - Music service API
 
----
+</details>
 
-## ϟ Support
+<details>
+<summary>ϟ Support</summary>
 
 For issues, questions, or suggestions:
 
-1. Check the [Troubleshooting](#-troubleshooting) section
+1. Check the Troubleshooting section above
 2. Review individual script documentation files
 3. Open an issue on GitHub
+
+</details>
 
 ---
 
