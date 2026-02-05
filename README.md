@@ -1,5 +1,5 @@
-<div align="center">
 # DeemixKit
+<div align="center">
 <img src="./docs/deemixkit-icon.png" alt="DeemixKit" width="300">
 
 **A macOS automation toolkit for downloading music from Spotify and Deezer via Deemix**
@@ -77,7 +77,7 @@ If you plan to use Spotify features, you'll need API credentials:
 
 ## ϟ Usage Examples
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22"> Search Deezer Album (Fastest - No Setup)
+## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22">  Search Deezer Album (Fastest - No Setup)
 
 ```bash
 # CLI
@@ -87,7 +87,7 @@ If you plan to use Spotify features, you'll need API credentials:
 osascript deezer/deezer-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Obsidian Logo" width="22"> Search Spotify Album
+## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Obsidian Logo" width="22"> Search Spotify Album
 
 ```bash
 # CLI
@@ -97,7 +97,7 @@ osascript deezer/deezer-to-deemix.applescript
 osascript spotify/spotify-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="Obsidian Logo" width="24">Download Full Discography
+## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="Obsidian Logo" width="24"> Download Full Discography
 
 ```bash
 # Downloads all albums and EPs for an artist
@@ -107,7 +107,7 @@ osascript spotify/spotify-to-deemix.applescript
 osascript discography/discography-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Obsidian Logo" width="24"> Download Album of Currently Playing Track on Spotify
+## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Obsidian Logo" width="24"> Download Album of Currently Playing Track on Spotify
 
 ```bash
 # One-click download of what you're listening to
@@ -118,7 +118,7 @@ node spotify/currently-playing-to-deemix.js
 
 ## ϟ What's Included
 
-#### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/py.png" alt="Obsidian Logo" width="22">Core Resolvers (Python)
+#### Core Resolvers
 
 | Script | Purpose | Credentials |
 |--------|---------|-------------|
@@ -179,7 +179,11 @@ python3 deezer/deezer-resolver.py
 echo "Artist - Album" | python3 deezer/deezer-resolver.py
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Obsidian Logo" width="35">Keyboard Maestro Integration
+
+
+## ϟ Integration
+
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Obsidian Logo" width="35">Keyboard Maestro
 
 Example macro for album downloads:
 
@@ -193,7 +197,7 @@ Example macro for album downloads:
 
 See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples.
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Obsidian Logo" width="24"> Raycast Integration
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Obsidian Logo" width="24"> Raycast
 
 Create a Raycast script:
 
@@ -209,11 +213,11 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 
 ## ϟ Troubleshooting
 
-### "Spotify API credentials not configured"
+#### "Spotify API credentials not configured"
 
 **Solution**: Set up credentials file as described in the Configuration section above.
 
-### "Failed to resolve link"
+#### "Failed to resolve link"
 
 **Solutions**:
 - Check spelling of artist/album names
@@ -221,21 +225,21 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 - For Spotify: Ensure your API credentials are valid
 - Try a different album name (some may not be available)
 
-### AppleScript permission errors
+#### AppleScript permission errors
 
 **Solution**: Grant System Events accessibility permission:
 - System Preferences → Security & Privacy → Privacy → Accessibility
 - Add Terminal or Script Editor to the list
 - Or grant permission when prompted
 
-### Deemix doesn't open
+#### Deemix doesn't open
 
 **Solutions**:
 - Ensure Deemix is installed from [deemix.app](https://deemix.app)
 - Check that Deemix is in your Applications folder
 - Try launching Deemix manually first
 
-### "Failed to copy to clipboard"
+#### "Failed to copy to clipboard"
 
 **Solutions**:
 ```bash
