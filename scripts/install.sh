@@ -103,6 +103,10 @@ if [ -d "deemixkit" ]; then
 Deemix: /Applications/Deemix.app
 DeemixKit: '"$INSTALL_DIR"'/deemixkit" buttons {"OK"} with icon note' 2>/dev/null
 
+    # Open folder in Finder
+    echo "Opening in Finder..."
+    open "$INSTALL_DIR/deemixkit"
+
     exit 0
   fi
 fi
@@ -132,6 +136,10 @@ You can now run scripts from the DeemixKit folder." buttons {"OK"} with icon not
     echo "=== Installation Complete ==="
     echo "Deemix: $DEEMIX_APP_PATH"
     echo "DeemixKit: $INSTALL_DIR/deemixkit"
+
+    # Open folder in Finder
+    echo "Opening in Finder..."
+    open "$INSTALL_DIR/deemixkit"
   else
     osascript -e 'display dialog "Failed to clone DeemixKit!" buttons {"OK"} with icon stop' 2>/dev/null
     echo "ERROR: Failed to clone DeemixKit!"
