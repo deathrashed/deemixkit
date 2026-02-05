@@ -1,0 +1,20 @@
+# Batch Download List
+# One album per line
+# Lines starting with # are comments
+#
+# Supported formats:
+#   Artist - Album
+#   Artist: Album
+#   Artist Album
+#
+# Empty lines are ignored
+
+# Example albums to download:
+Metallica - Master of Puppets
+Pink Floyd: The Wall
+Radiohead OK Computer
+
+# Add your albums below:
+# Daft Punk - Random Access Memories
+# Tame Impala: Currents
+# The Beatles Abbey Road
