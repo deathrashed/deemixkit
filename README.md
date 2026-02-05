@@ -41,8 +41,8 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 ```bash
 # Clone or download this repository
-git clone https://github.com/yourusername/DeemixKit.git
-cd DeemixKit
+git clone https://github.com/deathrashed/deemixkit.git
+cd deemixkit
 
 # Install Python dependencies
 pip install requests pyperclip
@@ -76,37 +76,37 @@ If you plan to use Spotify features, you'll need API credentials:
 
 ```bash
 # CLI
-./deezer-to-deemix.sh "Metallica" "Master of Puppets"
+./deezer/deezer-to-deemix.sh "Metallica" "Master of Puppets"
 
 # GUI Dialog
-osascript deezer-to-deemix.applescript
+osascript deezer/deezer-to-deemix.applescript
 ```
 
 ### Search Spotify Album
 
 ```bash
 # CLI
-./spotify-to-deemix.sh "Pink Floyd" "The Dark Side of the Moon"
+./spotify/spotify-to-deemix.sh "Pink Floyd" "The Dark Side of the Moon"
 
 # GUI Dialog
-osascript spotify-to-deemix.applescript
+osascript spotify/spotify-to-deemix.applescript
 ```
 
 ### Download Currently Playing Track (Spotify)
 
 ```bash
 # One-click download of what you're listening to
-node currently-playing-to-deemix.js
+node spotify/currently-playing-to-deemix.js
 ```
 
 ### Download Full Discography
 
 ```bash
 # Downloads all albums and EPs for an artist
-./discography-to-deemix.sh "Radiohead" "OK Computer"
+./discography/discography-to-deemix.sh "Radiohead" "OK Computer"
 
 # GUI Dialog
-osascript discography-to-deemix.applescript
+osascript discography/discography-to-deemix.applescript
 ```
 
 ---
@@ -117,23 +117,23 @@ osascript discography-to-deemix.applescript
 
 | Script | Purpose | Credentials |
 |--------|---------|-------------|
-| `deezer-resolver.py` | Search Deezer API | Not required ✅ |
-| `spotify-resolver.py` | Search Spotify API | Required ❌ |
-| `discography-resolver.py` | Fetch full discography | Not required ✅ |
+| `deezer/deezer-resolver.py` | Search Deezer API | Not required ✅ |
+| `spotify/spotify-resolver.py` | Search Spotify API | Required ❌ |
+| `discography/discography-resolver.py` | Fetch full discography | Not required ✅ |
 
 ### Complete Workflows
 
 | Workflow | CLI | GUI | Description |
 |----------|------|------|-------------|
-| **Deezer to Deemix** | `deezer-to-deemix.sh` | `deezer-to-deemix.applescript` | Search Deezer → Auto-paste to Deemix |
-| **Spotify to Deemix** | `spotify-to-deemix.sh` | `spotify-to-deemix.applescript` | Search Spotify → Auto-paste to Deemix |
-| **Discography to Deemix** | `discography-to-deemix.sh` | `discography-to-deemix.applescript` | Get all albums → Bulk paste to Deemix |
+| **Deezer to Deemix** | `deezer/deezer-to-deemix.sh` | `deezer/deezer-to-deemix.applescript` | Search Deezer → Auto-paste to Deemix |
+| **Spotify to Deemix** | `spotify/spotify-to-deemix.sh` | `spotify/spotify-to-deemix.applescript` | Search Spotify → Auto-paste to Deemix |
+| **Discography to Deemix** | `discography/discography-to-deemix.sh` | `discography/discography-to-deemix.applescript` | Get all albums → Bulk paste to Deemix |
 
 ### Special Scripts
 
 | Script | Purpose | Language |
 |--------|---------|----------|
-| `currently-playing-to-deemix.js` | Download currently playing Spotify track | Node.js |
+| `spotify/currently-playing-to-deemix.js` | Download currently playing Spotify track | Node.js |
 | `paste-to-deemix.applescript` | Paste clipboard into Deemix | AppleScript |
 
 ---
@@ -159,19 +159,19 @@ All Python resolvers support these options:
 
 ```bash
 # Verbose logging
-python3 deezer-resolver.py --band "Artist" --album "Album" --verbose
+python3 deezer/deezer-resolver.py --band "Artist" --album "Album" --verbose
 
 # Print URL instead of clipboard
-python3 deezer-resolver.py --band "Artist" --album "Album" --no-clipboard
+python3 deezer/deezer-resolver.py --band "Artist" --album "Album" --no-clipboard
 
 # Full search query
-python3 deezer-resolver.py --query "Artist Album"
+python3 deezer/deezer-resolver.py --query "Artist Album"
 
 # Interactive mode (prompts for input)
-python3 deezer-resolver.py
+python3 deezer/deezer-resolver.py
 
 # Pipe from stdin
-echo "Artist - Album" | python3 deezer-resolver.py
+echo "Artist - Album" | python3 deezer/deezer-resolver.py
 ```
 
 ### Keyboard Maestro Integration
@@ -182,11 +182,11 @@ Example macro for album downloads:
 2. **Prompt for Input**: Album name
 3. **Execute Shell Script**:
    ```bash
-   ./deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+   cd /path/to/deemixkit && ./deezer/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
    ```
 4. **Display Text**: "Album added to Deemix!"
 
-See `Keyboard Maestro DeemixKit.md` for detailed macro examples.
+See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples.
 
 ### Raycast Integration
 
@@ -194,7 +194,8 @@ Create a Raycast script:
 
 ```bash
 #!/bin/bash
-osascript deezer-to-deemix.applescript
+cd /path/to/deemixkit
+osascript deezer/deezer-to-deemix.applescript
 ```
 
 Save as `deemix-search.sh` in your Raycast scripts directory.
@@ -244,13 +245,35 @@ pip install pyperclip
 ```
 DeemixKit/
 ├── README.md                      # This file
-├── CREDENTIALS.md                 # Setup guide for API credentials
-├── AGENTS.md                     # Guide for AI agents
-├── *.py                          # Python resolvers
-├── *.sh                          # Bash wrappers
-├── *.applescript                 # GUI dialogs
-├── *.js                          # Node.js scripts
-└── Macros/                       # Keyboard Maestro macros
+├── LICENSE                        # MIT License
+├── paste-to-deemix.applescript    # Shared paste utility
+├── docs/                          # Documentation
+│   ├── CREDENTIALS.md             # API credentials setup
+│   ├── AGENTS.md                  # Developer guide for AI agents
+│   ├── DeemixKit.md               # Project overview
+│   ├── Keyboard Maestro DeemixKit.md
+│   └── ...
+├── deezer/                        # Deezer workflows
+│   ├── deezer-resolver.py         # Python resolver
+│   ├── deezer-to-deemix.sh        # CLI wrapper
+│   ├── deezer-to-deemix.applescript
+│   └── docs/                      # Deezer-specific docs
+├── spotify/                       # Spotify workflows
+│   ├── spotify-resolver.py        # Python resolver
+│   ├── spotify-to-deemix.sh       # CLI wrapper
+│   ├── spotify-to-deemix.applescript
+│   ├── currently-playing-to-deemix.js
+│   └── docs/                      # Spotify-specific docs
+├── discography/                   # Discography workflow
+│   ├── discography-resolver.py    # Python resolver
+│   ├── discography-to-deemix.sh   # CLI wrapper
+│   ├── discography-to-deemix.applescript
+│   └── docs/                      # Discography-specific docs
+├── scripts/                       # Utility scripts
+│   └── cleanup-docs.sh
+├── examples/                      # Example configurations
+│   └── credentials.json.example
+└── Macros/                        # Keyboard Maestro macros
 ```
 
 ---
@@ -283,9 +306,10 @@ When adding new scripts:
 
 ## 📖 Documentation
 
-- [CREDENTIALS.md](CREDENTIALS.md) - Detailed credentials setup
-- [AGENTS.md](AGENTS.md) - Developer guide for AI agents
-- Individual script documentation for each tool
+- [docs/CREDENTIALS.md](docs/CREDENTIALS.md) - Detailed credentials setup
+- [docs/AGENTS.md](docs/AGENTS.md) - Developer guide for AI agents
+- [docs/DeemixKit.md](docs/DeemixKit.md) - Project overview
+- Individual service folders contain docs for each tool
 
 ---
 
@@ -294,7 +318,7 @@ When adding new scripts:
 ### Save AppleScripts as Dock Apps
 
 1. Open Script Editor
-2. Copy content from `deezer-to-deemix.applescript`
+2. Copy content from `deezer/deezer-to-deemix.applescript`
 3. Save as "Deezer to Deemix" with File Format: Application
 4. Drag to Dock for one-click access
 
@@ -303,10 +327,10 @@ When adding new scripts:
 Add to your `~/.zshrc` or `~/.bash_profile`:
 
 ```bash
-alias deemix='./deezer-to-deemix.sh'
-alias spoti='./spotify-to-deemix.sh'
-alias disco='./discography-to-deemix.sh'
-alias now='node currently-playing-to-deemix.js'
+alias deemix='./deezer/deezer-to-deemix.sh'
+alias spoti='./spotify/spotify-to-deemix.sh'
+alias disco='./discography/discography-to-deemix.sh'
+alias now='node spotify/currently-playing-to-deemix.js'
 ```
 
 Then use short commands:
@@ -325,7 +349,7 @@ now
 albums=("Metallica:Master of Puppets" "Pink Floyd:The Wall" "Radiohead:OK Computer")
 for album in "${albums[@]}"; do
   IFS=':' read -r artist name <<< "$album"
-  ./deezer-to-deemix.sh "$artist" "$name"
+  ./deezer/deezer-to-deemix.sh "$artist" "$name"
   sleep 10  # Wait between downloads
 done
 ```

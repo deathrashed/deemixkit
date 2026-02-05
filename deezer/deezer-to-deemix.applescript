@@ -2,19 +2,19 @@
 
 -- Get the directory where this script is located
 tell application "System Events"
-	set scriptPosixPath to POSIX path of (path to me)
+	set scriptDir to POSIX path of (path to me)
 end tell
-set scriptDir to do shell script "dirname \"" & quoted form of scriptPosixPath & "\""
+set scriptDir to do shell script "dirname \"" & quoted form of scriptDir & "\""
 
-set pythonScript to scriptDir & "/spotify-resolver.py"
-set pasteScript to scriptDir & "/paste-to-deemix.applescript"
+set pythonScript to scriptDir & "/deezer-resolver.py"
+set pasteScript to scriptDir & "/../paste-to-deemix.applescript"
 
 -- Single dialog with both inputs
 try
 	display dialog ¬
 		"Enter your search:" default answer ¬
 		"Artist - Album" with title ¬
-		"Spotify to Deemix" buttons {"Cancel", "OK"} ¬
+		"Deezer to Deemix" buttons {"Cancel", "OK"} ¬
 		default button ¬
 		"OK" cancel button "Cancel"
 	
@@ -30,11 +30,11 @@ on error
 	return
 end try
 
--- Run Spotify resolver
+-- Run Deezer resolver
 try
 	do shell script "python3 \"" & pythonScript & "\" --band \"" & artist & "\" --album \"" & album & "\""
 on error errorMsg
-	display alert "Error" message "Failed to resolve Spotify link:" & return & errorMsg
+	display alert "Error" message "Failed to resolve Deezer link:" & return & errorMsg
 	return
 end try
 
@@ -43,7 +43,7 @@ delay 0.5
 -- Run paste into Deemix
 try
 	do shell script "osascript \"" & pasteScript & "\""
-	display notification "Album added to Deemix" with title "Spotify Resolver"
+	display notification "Album added to Deemix" with title "Deezer Resolver"
 on error errorMsg
 	display alert "Error" message "Failed to paste into Deemix:" & return & errorMsg
 	return

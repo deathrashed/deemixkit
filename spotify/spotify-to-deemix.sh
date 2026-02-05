@@ -20,6 +20,6 @@ fi
 sleep 0.5
 
 # Execute AppleScript to paste into Deemix
-osascript "$SCRIPT_DIR/paste-to-deemix.applescript"
+osascript "$SCRIPT_DIR/../paste-to-deemix.applescript"
 
 exit $?
