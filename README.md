@@ -141,7 +141,7 @@ node spotify/currently-playing-to-deemix.js
 
 #### Keyboard Maestro Macros
 
-Comprehensive macros for [Keyboard Maestro](https://www.keyboardmaestro.com/) included in `Macros/` folder:
+Comprehensive macros for [Keyboard Maestro](https://www.keyboardmaestro.com/) included in `macros/` folder:
 
 | Macro | Description |
 |-------|-------------|
@@ -221,7 +221,7 @@ echo "Artist - Album" | python3 deezer/deezer-resolver.py
 <details>
 <summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Keyboard Maestro" width="22"> Keyboard Maestro Integration</summary>
 
-**Ready-to-use macros included** in `Macros/` folder - just import and use!
+**Ready-to-use macros included** in `macros/` folder - just import and use!
 
 For custom macros, here's a basic example for album downloads:
 
@@ -233,7 +233,7 @@ For custom macros, here's a basic example for album downloads:
    ```
 4. **Display Text**: "Album added to Deemix!"
 
-See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples and the Macros/ folder for complete pre-built workflows.
+See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples and the macros/ folder for complete pre-built workflows.
 
 </details>
 
@@ -329,7 +329,7 @@ DeemixKit/
 │   └── cleanup-docs.sh
 ├── examples/                      # Example configurations
 │   └── credentials.json.example
-└── Macros/                        # Ready-to-use Keyboard Maestro macros (Download, Discography, etc.)
+└── macros/                        # Ready-to-use Keyboard Maestro macros (Download, Discography, etc.)
 ```
 
 </details>

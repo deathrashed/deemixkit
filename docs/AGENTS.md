@@ -24,7 +24,7 @@ DeemixKit/
 ├── *.md                # Documentation files
 ├── .gitignore           # Git ignore rules
 ├── credentials.json.example  # Credentials template
-└── Macros/             # Keyboard Maestro macro files
+└── macros/             # Keyboard Maestro macro files
 ```
 
 ## Script Types and Patterns
@@ -786,7 +786,7 @@ node currently-playing-to-deemix.js
 
 ## Keyboard Maestro Integration
 
-Keyboard Maestro macros are available in the `Macros/` directory. These enable hotkey access to common workflows:
+Keyboard Maestro macros are available in the `macros/` directory. These enable hotkey access to common workflows:
 
 - `Deemix from Spotify.kmmacros` - Download currently playing album
 - `Deemix from Deezer.kmmacros` - Download specific Deezer album (via dialog)
