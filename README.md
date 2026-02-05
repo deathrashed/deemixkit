@@ -1,6 +1,6 @@
 <div align="center">
-
 # DeemixKit
+<img src="./docs/deemixkit-icon.png" alt="DeemixKit" width="300">
 
 **A macOS automation toolkit for downloading music from Spotify and Deezer via Deemix**
 
@@ -12,9 +12,9 @@
 
 </div>
 
-## 🎵 What is DeemixKit?
+##  What is DeemixKit?
 
-DeemixKit is a collection of automation scripts that bridge popular music services (Spotify, Deezer) with [Deemix](https://deemix.app), the popular music downloader. It helps you quickly find and download albums with minimal effort.
+DeemixKit is a collection of automation scripts that bridge popular music services (Spotify, Deezer) with [Deemix](https://deemix.org), the popular music downloader. It helps you quickly find and download albums with minimal effort.
 
 ### Key Features
 
@@ -28,13 +28,18 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 ---
 
-## ⚡ Quick Start
+## ϟ Quick Start
 
 ### Prerequisites
 
 1. **macOS** (required for AppleScript automation)
-2. [Deemix](https://deemix.app) desktop application
+
+2. [Deemix](https://deemix.org/) desktop application. 
+
+   [Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
+
 3. Python 3.7+ (for most scripts)
+
 4. Node.js 14+ (optional, for Spotify currently-playing script)
 
 ### Installation
@@ -48,7 +53,7 @@ cd deemixkit
 pip install requests pyperclip
 ```
 
-### Configuration (Spotify Only)
+#### Configuration (Spotify Only)
 
 If you plan to use Spotify features, you'll need API credentials:
 
@@ -70,9 +75,9 @@ If you plan to use Spotify features, you'll need API credentials:
 
 ---
 
-## 📖 Usage Examples
+## ϟ Usage Examples
 
-### Search Deezer Album (Fastest - No Setup)
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22"> Search Deezer Album (Fastest - No Setup)
 
 ```bash
 # CLI
@@ -82,7 +87,7 @@ If you plan to use Spotify features, you'll need API credentials:
 osascript deezer/deezer-to-deemix.applescript
 ```
 
-### Search Spotify Album
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Obsidian Logo" width="22"> Search Spotify Album
 
 ```bash
 # CLI
@@ -92,14 +97,7 @@ osascript deezer/deezer-to-deemix.applescript
 osascript spotify/spotify-to-deemix.applescript
 ```
 
-### Download Currently Playing Track (Spotify)
-
-```bash
-# One-click download of what you're listening to
-node spotify/currently-playing-to-deemix.js
-```
-
-### Download Full Discography
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="Obsidian Logo" width="24">Download Full Discography
 
 ```bash
 # Downloads all albums and EPs for an artist
@@ -109,11 +107,18 @@ node spotify/currently-playing-to-deemix.js
 osascript discography/discography-to-deemix.applescript
 ```
 
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Obsidian Logo" width="24"> Download Album of Currently Playing Track on Spotify
+
+```bash
+# One-click download of what you're listening to
+node spotify/currently-playing-to-deemix.js
+```
+
 ---
 
-## 🗂️ What's Included
+## ϟ What's Included
 
-### Core Resolvers (Python)
+#### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/py.png" alt="Obsidian Logo" width="22">Core Resolvers (Python)
 
 | Script | Purpose | Credentials |
 |--------|---------|-------------|
@@ -121,7 +126,7 @@ osascript discography/discography-to-deemix.applescript
 | `spotify/spotify-resolver.py` | Search Spotify API | Required ❌ |
 | `discography/discography-resolver.py` | Fetch full discography | Not required ✅ |
 
-### Complete Workflows
+#### Complete Workflows
 
 | Workflow | CLI | GUI | Description |
 |----------|------|------|-------------|
@@ -129,16 +134,16 @@ osascript discography/discography-to-deemix.applescript
 | **Spotify to Deemix** | `spotify/spotify-to-deemix.sh` | `spotify/spotify-to-deemix.applescript` | Search Spotify → Auto-paste to Deemix |
 | **Discography to Deemix** | `discography/discography-to-deemix.sh` | `discography/discography-to-deemix.applescript` | Get all albums → Bulk paste to Deemix |
 
-### Special Scripts
+#### Special Scripts
 
 | Script | Purpose | Language |
 |--------|---------|----------|
 | `spotify/currently-playing-to-deemix.js` | Download currently playing Spotify track | Node.js |
-| `paste-to-deemix.applescript` | Paste clipboard into Deemix | AppleScript |
+| `scripts/paste-to-deemix.applescript` | Paste clipboard into Deemix | AppleScript |
 
 ---
 
-## 🎯 Workflow Comparison
+## ϟ Workflow Comparison
 
 | Feature | Deezer | Spotify | Discography | Currently Playing |
 |---------|---------|----------|-------------|-------------------|
@@ -151,9 +156,9 @@ osascript discography/discography-to-deemix.applescript
 
 ---
 
-## 📚 Advanced Usage
+## ϟ Advanced Usage
 
-### Python Resolver Options
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/py.png" alt="Obsidian Logo" width="22"> Python Resolver Options
 
 All Python resolvers support these options:
 
@@ -174,7 +179,7 @@ python3 deezer/deezer-resolver.py
 echo "Artist - Album" | python3 deezer/deezer-resolver.py
 ```
 
-### Keyboard Maestro Integration
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Obsidian Logo" width="35">Keyboard Maestro Integration
 
 Example macro for album downloads:
 
@@ -182,13 +187,13 @@ Example macro for album downloads:
 2. **Prompt for Input**: Album name
 3. **Execute Shell Script**:
    ```bash
-   cd /path/to/deemixkit && ./deezer/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+   /path/to/deemixkit/deezer/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
    ```
 4. **Display Text**: "Album added to Deemix!"
 
 See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples.
 
-### Raycast Integration
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Obsidian Logo" width="24"> Raycast Integration
 
 Create a Raycast script:
 
@@ -202,7 +207,7 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 
 ---
 
-## 🛠️ Troubleshooting
+## ϟ Troubleshooting
 
 ### "Spotify API credentials not configured"
 
@@ -240,7 +245,7 @@ pip install pyperclip
 
 ---
 
-## 📁 Project Structure
+## ϟ Project Structure
 
 ```
 DeemixKit/
@@ -278,7 +283,7 @@ DeemixKit/
 
 ---
 
-## 🔐 Security
+## ϟ Security
 
 - **Never commit credentials**: The `.gitignore` file prevents accidental commits of API keys
 - **Use credentials.example**: Commit only example files, never real credentials
@@ -286,13 +291,13 @@ DeemixKit/
 
 ---
 
-## 📄 License
+## ϟ License
 
 This project is free to use and modify for personal use.
 
 ---
 
-## 🤝 Contributing
+## ϟ Contributing
 
 When adding new scripts:
 
@@ -304,7 +309,7 @@ When adding new scripts:
 
 ---
 
-## 📖 Documentation
+## ϟ Documentation
 
 - [docs/CREDENTIALS.md](docs/CREDENTIALS.md) - Detailed credentials setup
 - [docs/AGENTS.md](docs/AGENTS.md) - Developer guide for AI agents
@@ -313,7 +318,7 @@ When adding new scripts:
 
 ---
 
-## 💡 Tips & Tricks
+## ϟ Tips & Tricks
 
 ### Save AppleScripts as Dock Apps
 
@@ -356,15 +361,15 @@ done
 
 ---
 
-## 🙏 Acknowledgments
+## ϟ Acknowledgments
 
-- [Deemix](https://deemix.app) - Music downloader application
+- [Deemix](https://deemix.org) - Music downloader application
 - [Spotify Web API](https://developer.spotify.com/) - Music service API
 - [Deezer API](https://developers.deezer.com/) - Music service API
 
 ---
 
-## 📧 Support
+## ϟ Support
 
 For issues, questions, or suggestions:
 
@@ -374,4 +379,4 @@ For issues, questions, or suggestions:
 
 ---
 
-**Made with ❤️ for music enthusiasts**
+**Made for music enthusiasts**
