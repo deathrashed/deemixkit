@@ -46,14 +46,23 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 #### ⚡ Quick Install (Recommended)
 
-**Double-click** `install/Install DeemixKit.command` to automatically:
+- Paste the following into your terminal and follow the prompts
+
+```bash
+curl -s https://raw.githubusercontent.com/deathrashed/deemixkit/main/install/install.sh | bash
+```
+
+It will **automatically**:
+
 - Download and install Deemix
-- Clone DeemixKit
-- Install Python dependencies
-- Set up credentials file
+- Clone DeemixKit to your specified location
+- Install the required Python dependencies
+- Set up your credentials file
 - Prompt for Spotify API keys (optional)
 
 See [install/README.md](install/README.md) for details.
+
+or you can also **Double-click** `install/Install DeemixKit.command` 
 
 #### Manual Installation
 
