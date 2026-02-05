@@ -12,7 +12,7 @@ DEEMIX_APP_PATH="/Applications/Deemix.app"
 echo "=== DeemixKit + Deemix Installer ==="
 
 # Prompt for install location using AppleScript
-INSTALL_DIR=$(osascript -e 'text returned of (display dialog "Enter installation directory for DeemixKit:" default answer "'"$HOME"'/deemixkit-install" buttons {"OK"} default button "OK")' 2>/dev/null)
+INSTALL_DIR=$(osascript -e 'text returned of (display dialog "Enter installation directory for DeemixKit:" default answer "'"$HOME"'/" buttons {"OK"} default button "OK")' 2>/dev/null)
 
 # If user cancelled or empty, use default
 if [[ -z "$INSTALL_DIR" ]]; then
@@ -123,14 +123,68 @@ if [ ! -d "deemixkit" ]; then
     echo "Installing Python dependencies..."
     pip3 install requests pyperclip || echo "Warning: pip install had issues, you may need to run manually"
 
+    # Setup credentials file
+    echo "Setting up credentials..."
+    CONFIG_DIR="$HOME/.config/deemixkit"
+    CONFIG_FILE="$CONFIG_DIR/credentials.json"
+
+    mkdir -p "$CONFIG_DIR"
+
+    # Copy example credentials if config doesn't exist
+    if [ ! -f "$CONFIG_FILE" ]; then
+      cp examples/credentials.json.example "$CONFIG_FILE"
+      echo "Created credentials file at: $CONFIG_FILE"
+    else
+      echo "Credentials file already exists at: $CONFIG_FILE"
+    fi
+
+    # Ask if user wants to add Spotify credentials
+    ADD_SPOTIFY=$(osascript -e 'button returned of (display dialog "Do you want to add Spotify API credentials?
+
+Spotify features require API credentials from:
+https://developer.spotify.com/dashboard
+
+Deezer works without any credentials." buttons {"Skip", "Add Spotify"} default button "Skip")' 2>/dev/null)
+
+    if [[ "$ADD_SPOTIFY" == "Add Spotify" ]]; then
+      # Prompt for Client ID
+      CLIENT_ID=$(osascript -e 'text returned of (display dialog "Enter your Spotify Client ID:" default answer "" buttons {"OK"} default button "OK")' 2>/dev/null)
+
+      # Prompt for Client Secret
+      CLIENT_SECRET=$(osascript -e 'text returned of (display dialog "Enter your Spotify Client Secret:" default answer "" buttons {"OK"} default button "OK")' 2>/dev/null)
+
+      # Add credentials to config file
+      if [[ -n "$CLIENT_ID" && -n "$CLIENT_SECRET" ]]; then
+        # Create updated credentials file
+        cat > "$CONFIG_FILE" << CRED_EOF
+{
+  "spotify": {
+    "client_id": "$CLIENT_ID",
+    "client_secret": "$CLIENT_SECRET"
+  }
+}
+CRED_EOF
+        echo "Spotify credentials added to: $CONFIG_FILE"
+
+        # Set restrictive permissions
+        chmod 600 "$CONFIG_FILE"
+      else
+        echo "No Spotify credentials provided, skipping..."
+      fi
+    fi
+
     # Show success dialog
     osascript -e 'display dialog "Installation Complete!
 
 ✓ Deemix installed to: /Applications/Deemix.app
 ✓ DeemixKit installed to: '"$INSTALL_DIR"'/deemixkit
 ✓ Python dependencies installed
+✓ Credentials file created at: ~/.config/deemixkit/
 
-You can now run scripts from the DeemixKit folder." buttons {"OK"} with icon note' 2>/dev/null
+You can now run scripts from the DeemixKit folder.
+
+Note: Deezer works immediately. Spotify features require
+API credentials which you can add later if needed." buttons {"OK"} with icon note' 2>/dev/null
 
     echo ""
     echo "=== Installation Complete ==="
