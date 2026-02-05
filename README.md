@@ -1,6 +1,7 @@
 # DeemixKit
 <div align="center">
-<img src="./docs/deemixkit-icon.png" alt="DeemixKit" width="300">
+<img src="./docs/icons/deemixkit-icon.png" alt="DeemixKit" width="300">
+
 
 **A macOS automation toolkit for downloading music from Spotify and Deezer via Deemix**
 

@@ -1,0 +1,40 @@
+# -------------------------------------------
+# Batch Download List Example File
+# -------------------------------------------
+# Used in /DeemixKit/batch/batch-downloader.sh
+# One album per line
+# Lines starting with # are comments
+# Supported formats:
+#   Artist - Album
+#   Artist: Album
+#   Artist Album
+# Empty lines are ignored
+# -------------------------------------------
+# Example albums to download:
+# -------------------------------------------
+# Metallica - Master of Puppets
+# Pink Floyd: The Wall
+# Radiohead OK Computer
+# Daft Punk - Random Access Memories
+# Tame Impala: Currents
+# The Beatles Abbey Road
+# -------------------------------------------
+# Add your albums below:
+# -------------------------------------------
+
+Sarcófago - I.N.R.I.
+Bathory - The Blood, Fire & Death
+Sodom - Persecution Mania
+Sarcasm - Burial Rites
+Sadus - Illusions
+Anacrusis - Screams and Whispers
+Atheist - Piece of Time
+Cynic - Focus
+Pestilence - Consuming Impulse
+Morbosidad - Odium
+Beherit - Drawing Down the Moon
+Incubus - Beyond the Unknown
+Sorrow - Forgotten Path
+Merciless - The Awakening
+Impiety - Ravage & Desecrate
+Archspire - The Lucid Collective

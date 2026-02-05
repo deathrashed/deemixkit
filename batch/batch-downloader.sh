@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Default values
 INPUT_FILE="albums.txt"
-DELAY=10
+DELAY=0
 DEFAULT_SERVICE="deezer"
 DRY_RUN=false
 
