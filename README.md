@@ -329,7 +329,7 @@ DeemixKit/
 │   └── cleanup-docs.sh
 ├── examples/                      # Example configurations
 │   └── credentials.json.example
-└── Macros/                        # Keyboard Maestro macros
+└── Macros/                        # Ready-to-use Keyboard Maestro macros (Download, Discography, etc.)
 ```
 
 </details>
