@@ -34,7 +34,7 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 1. **macOS** (required for AppleScript automation)
 
-2. [Deemix](https://deemix.org/) desktop application. 
+2. [Deemix](https://deemix.org/) desktop application.
 
    [Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
 
@@ -55,6 +55,9 @@ pip install requests pyperclip
 
 #### Configuration (Spotify Only)
 
+<details>
+<summary>Click to expand Spotify setup</summary>
+
 If you plan to use Spotify features, you'll need API credentials:
 
 1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
@@ -73,11 +76,13 @@ If you plan to use Spotify features, you'll need API credentials:
 
 **Deezer requires no configuration** - it uses a free public API!
 
+</details>
+
 ---
 
 ## ϟ Usage Examples
 
-## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22">  Search Deezer Album (Fastest - No Setup)
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22"> Search Deezer Album (Fastest - No Setup)
 
 ```bash
 # CLI
@@ -87,7 +92,7 @@ If you plan to use Spotify features, you'll need API credentials:
 osascript deezer/deezer-to-deemix.applescript
 ```
 
-## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Obsidian Logo" width="22"> Search Spotify Album
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Spotify Logo" width="22"> Search Spotify Album
 
 ```bash
 # CLI
@@ -97,7 +102,7 @@ osascript deezer/deezer-to-deemix.applescript
 osascript spotify/spotify-to-deemix.applescript
 ```
 
-## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="Obsidian Logo" width="24"> Download Full Discography
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="LP" width="24"> Download Full Discography
 
 ```bash
 # Downloads all albums and EPs for an artist
@@ -107,7 +112,7 @@ osascript spotify/spotify-to-deemix.applescript
 osascript discography/discography-to-deemix.applescript
 ```
 
-## <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Obsidian Logo" width="24"> Download Album of Currently Playing Track on Spotify
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Now Playing" width="24"> Download Currently Playing Track (Spotify)
 
 ```bash
 # One-click download of what you're listening to
@@ -158,7 +163,8 @@ node spotify/currently-playing-to-deemix.js
 
 ## ϟ Advanced Usage
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/py.png" alt="Obsidian Logo" width="22"> Python Resolver Options
+<details>
+<summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/py.png" alt="Python" width="18"> Python Resolver Options</summary>
 
 All Python resolvers support these options:
 
@@ -179,11 +185,10 @@ python3 deezer/deezer-resolver.py
 echo "Artist - Album" | python3 deezer/deezer-resolver.py
 ```
 
+</details>
 
-
-## ϟ Integration
-
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Obsidian Logo" width="35">Keyboard Maestro
+<details>
+<summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/keyboard-maestro-icon.png" alt="Keyboard Maestro" width="22"> Keyboard Maestro Integration</summary>
 
 Example macro for album downloads:
 
@@ -197,7 +202,10 @@ Example macro for album downloads:
 
 See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples.
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Obsidian Logo" width="24"> Raycast
+</details>
+
+<details>
+<summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Raycast" width="22"> Raycast Integration</summary>
 
 Create a Raycast script:
 
@@ -208,6 +216,8 @@ osascript deezer/deezer-to-deemix.applescript
 ```
 
 Save as `deemix-search.sh` in your Raycast scripts directory.
+
+</details>
 
 ---
 
@@ -228,14 +238,14 @@ Save as `deemix-search.sh` in your Raycast scripts directory.
 #### AppleScript permission errors
 
 **Solution**: Grant System Events accessibility permission:
-- System Preferences → Security & Privacy → Privacy → Accessibility
+- System Settings → Privacy & Security → Accessibility
 - Add Terminal or Script Editor to the list
 - Or grant permission when prompted
 
 #### Deemix doesn't open
 
 **Solutions**:
-- Ensure Deemix is installed from [deemix.app](https://deemix.app)
+- Ensure Deemix is installed from [deemix.org](https://deemix.org)
 - Check that Deemix is in your Applications folder
 - Try launching Deemix manually first
 
@@ -249,13 +259,14 @@ pip install pyperclip
 
 ---
 
-## ϟ Project Structure
+<details>
+<summary>ϟ Project Structure</summary>
 
 ```
 DeemixKit/
 ├── README.md                      # This file
 ├── LICENSE                        # MIT License
-├── paste-to-deemix.applescript    # Shared paste utility
+├── scripts/paste-to-deemix.applescript  # Shared paste utility
 ├── docs/                          # Documentation
 │   ├── CREDENTIALS.md             # API credentials setup
 │   ├── AGENTS.md                  # Developer guide for AI agents
@@ -285,44 +296,41 @@ DeemixKit/
 └── Macros/                        # Keyboard Maestro macros
 ```
 
----
+</details>
 
-## ϟ Security
+<details>
+<summary>ϟ Security & Contributing</summary>
+
+## Security
 
 - **Never commit credentials**: The `.gitignore` file prevents accidental commits of API keys
 - **Use credentials.example**: Commit only example files, never real credentials
 - **File permissions**: Set restrictive permissions on credentials files: `chmod 600 ~/.config/deemixkit/credentials.json`
 
----
-
-## ϟ License
-
-This project is free to use and modify for personal use.
-
----
-
-## ϟ Contributing
+## Contributing
 
 When adding new scripts:
 
-1. Follow existing patterns (see `AGENTS.md` for developer guide)
+1. Follow existing patterns (see `docs/AGENTS.md` for developer guide)
 2. Read credentials from `~/.config/deemixkit/credentials.json`
 3. Create or update documentation
-4. Update `credentials.json.example` if adding new services
+4. Update `examples/credentials.json.example` if adding new services
 5. Test with and without credentials present
 
----
+</details>
 
-## ϟ Documentation
+<details>
+<summary>ϟ Documentation</summary>
 
 - [docs/CREDENTIALS.md](docs/CREDENTIALS.md) - Detailed credentials setup
 - [docs/AGENTS.md](docs/AGENTS.md) - Developer guide for AI agents
 - [docs/DeemixKit.md](docs/DeemixKit.md) - Project overview
 - Individual service folders contain docs for each tool
 
----
+</details>
 
-## ϟ Tips & Tricks
+<details>
+<summary>ϟ Tips & Tricks</summary>
 
 ### Save AppleScripts as Dock Apps
 
@@ -362,6 +370,8 @@ for album in "${albums[@]}"; do
   sleep 10  # Wait between downloads
 done
 ```
+
+</details>
 
 ---
 
