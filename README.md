@@ -48,11 +48,7 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 5. Click icon below for direct [Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
 
-   <a href="https://deathrashed.short.gy/deemix" target="_blank">
-     <img src="./docs/icons/deemix.png" alt="Deezer Logo" width="55" style="vertical-align: middle;">
-     <strong>Download</strong>
-   </a>
-
+    [<img src="./docs/icons/deemix.png" alt="Download" width="100">](https://deathrashed.short.gy/deemix)
 ### Installation
 
 #### <img src="./docs/icons/shell-deezer.png" alt="Deezer Logo" width="24"> Quick Install (Recommended)
