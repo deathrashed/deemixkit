@@ -2,10 +2,8 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-CONFIG_DIR="$HOME/.config/deemixkit"
-if [ ! -d "$CONFIG_DIR" ]; then
-  mkdir -p "$CONFIG_DIR"
-fi
+# Default to the deemix config directory
+CONFIG_DIR="/Users/rd/.config/deemix"
 
 PORTABLE_FLAG=""
 if [ "$1" = "--portable" ]; then
@@ -49,6 +47,3 @@ echo "$ARL_TOKEN" > "$CONFIG_DIR/.arl"
 echo ""
 echo "ARL token saved to $CONFIG_DIR/.arl"
 echo "Setup complete! You can now use deemix-download.sh to download."
-echo ""
-echo "Note: Run the following command to move the deemix package:"
-echo "  mv /Volumes/Eksternal/Music/Tools/DeemixKit/deemix /Users/rd/.config/deemix/deemix-py"

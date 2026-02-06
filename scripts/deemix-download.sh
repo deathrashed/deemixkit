@@ -51,5 +51,18 @@ if [ "$PORTABLE" = true ]; then
   PORTABLE_FLAG="--portable"
 fi
 
-export PYTHONPATH="/Users/rd/.config/deemix:$PYTHONPATH"
-python3 -m deemix $PORTABLE_FLAG -b "$BITRATE" $OUTPUT_PATH "$@"
+# Run deemix directly from the installed location
+DEEMIX_MAIN="/Users/rd/.config/deemix/deemix-py/__main__.py"
+DEEMIX_CONFIG_DIR="/Users/rd/.config/deemix"
+export DEEMIX_DATA_DIR="$DEEMIX_CONFIG_DIR"
+
+# Clean URLs - remove backslash escapes that some shells add
+clean_urls=()
+for url in "$@"; do
+  clean_url="${url//\\\?/?}"
+  clean_url="${clean_url//\=/=}"
+  clean_url="${clean_url//\\\&/&}"
+  clean_urls+=("$clean_url")
+done
+
+python3 "$DEEMIX_MAIN" $PORTABLE_FLAG -b "$BITRATE" $OUTPUT_PATH "${clean_urls[@]}"
