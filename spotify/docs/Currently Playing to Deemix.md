@@ -50,14 +50,14 @@ A Node.js script that retrieves the currently playing track from Spotify, looks 
 ### Basic Usage
 
 ```bash
-node .//currently-playing-spotify-to-deemix.js
+node ./currently-playing-spotify-to-deemix.js
 ```
 
 ### In Terminal (make executable)
 
 ```bash
-chmod +x .//currently-playing-spotify-to-deemix.js
-.//currently-playing-spotify-to-deemix.js
+chmod +x ./currently-playing-spotify-to-deemix.js
+./currently-playing-spotify-to-deemix.js
 ```
 
 ### From Keyboard Maestro
@@ -75,7 +75,7 @@ node "/path/to/DeemixKit/spotify/currently-playing-to-deemix.js"
 
 ## Script Details
 
-**File Path:** `.//currently-playing-spotify-to-deemix.js`  
+**File Path:** `./currently-playing-spotify-to-deemix.js`  
 **Language:** JavaScript (Node.js)  
 **Category:** Audio / Music
 
@@ -83,10 +83,47 @@ node "/path/to/DeemixKit/spotify/currently-playing-to-deemix.js"
 
 ```javascript
 import { execSync } from "child_process";
+import { readFileSync } from "fs";
+import { join } from "path";
+import { homedir } from "os";
 
-// Spotify credentials
-const CLIENT_ID = "fd98249e14764c1f8183be7f7553bd0e";
-const CLIENT_SECRET = "629e21c01c0344528605d2db82ea52ea";
+// Get Spotify credentials from unified config file
+function getCredentials() {
+    const configPath = join(homedir(), '.config', 'deemixkit', 'credentials.json');
+    try {
+        const config = JSON.parse(readFileSync(configPath, 'utf8'));
+        if (config.spotify?.client_id && config.spotify?.client_secret) {
+            return {
+                clientId: config.spotify.client_id,
+                clientSecret: config.spotify.client_secret
+            };
+        }
+    } catch (err) {
+        console.error(`❌ Error reading config file: ${err.message}`);
+        console.error(`📁 Expected location: ${configPath}`);
+        console.error("\nCreate a credentials file with:");
+        console.error('  {\n    "spotify": {\n      "client_id": "your_id",\n      "client_secret": "your_secret"\n    }\n  }');
+        console.error("\nSee CREDENTIALS.md for detailed setup instructions.");
+        process.exit(1);
+    }
+
+    return null;
+}
+
+const credentials = getCredentials();
+
+if (!credentials) {
+    console.error("❌ Spotify credentials not found!");
+    console.error("\nCreate a credentials file at:");
+    console.error("  ~/.config/deemixkit/credentials.json");
+    console.error("\nWith content:");
+    console.error('  {\n    "spotify": {\n      "client_id": "your_id",\n      "client_secret": "your_secret"\n    }\n  }');
+    console.error("\nGet credentials from: https://developer.spotify.com/dashboard/applications");
+    console.error("\nSee CREDENTIALS.md for detailed setup instructions.");
+    process.exit(1);
+}
+
+const { clientId: CLIENT_ID, clientSecret: CLIENT_SECRET } = credentials;
 
 // Get access token
 function getAccessToken() {
@@ -151,15 +188,11 @@ tell application "Deemix" to activate
 delay 0.5
 
 tell application "System Events"
-  keystroke "a" using command down
-  delay 0.1
-  keystroke "v" using command down
-  delay 0.1
-  key up command
-  delay 0.1
-  keystroke return
-  delay 0.3
-  keystroke "h" using command down
+	keystroke "v" using command down
+	delay 0.1
+	key up command
+	delay 3.5
+	keystroke "h" using command down
 end tell
 `;
 
@@ -173,7 +206,7 @@ console.log(`🫟 🫟 🫟 🫟 🫟`);
 ### Example 1: One-Click Download Current Track
 
 1. Playing: "Master of Puppets" by Metallica in Spotify
-2. Run: `node .//Currently\ Playing\ Spotify\ to\ Deemix.js`
+2. Run: `node ./currently-playing-spotify-to-deemix.js`
 3. Output: `🫟 🫟 🫟 🫟 🫟`
 4. Deemix opens and starts downloading the album automatically
 
@@ -192,7 +225,7 @@ Display Text: "Album added to Deemix!"
 ```bash
 # Keep checking Spotify and downloading currently playing albums
 while true; do
-  node .//currently-playing-spotify-to-deemix.js
+  node ./currently-playing-spotify-to-deemix.js
   sleep 30  # Check every 30 seconds
 done
 ```
@@ -200,7 +233,7 @@ done
 ### Example 4: No Track Playing
 
 ```bash
-$ node .//currently-playing-spotify-to-deemix.js
+$ node ./currently-playing-spotify-to-deemix.js 
 🎵 No song is currently playing.
 
 # Script exits gracefully without errors
@@ -233,23 +266,20 @@ $ node .//currently-playing-spotify-to-deemix.js
 
 ## Configuration
 
-**API Credentials** - Currently hardcoded:
-```javascript
-const CLIENT_ID = "fd98249e14764c1f8183be7f7553bd0e";
-const CLIENT_SECRET = "629e21c01c0344528605d2db82ea52ea";
+**API Credentials** - Loaded from unified config file at `~/.config/deemixkit/credentials.json`:
+
+```json
+{
+  "spotify": {
+    "client_id": "your_client_id_here",
+    "client_secret": "your_client_secret_here"
+  }
+}
 ```
 
-To use environment variables instead:
-```javascript
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
-```
+Get your credentials from the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications).
 
-Then set in terminal:
-```bash
-export SPOTIFY_CLIENT_ID="your_id"
-export SPOTIFY_CLIENT_SECRET="your_secret"
-```
+See `CREDENTIALS.md` in the repository root for detailed setup instructions.
 
 ## Related Scripts
 

@@ -22,9 +22,27 @@ from pathlib import Path
 from typing import Set, Tuple, Optional, Dict, List
 import subprocess
 
+def load_deemixkit_path() -> Path:
+    """Load DeemixKit path from credentials.json or use default."""
+    default_path = Path("/Volumes/Eksternal/Music/Tools/DeemixKit")
+    config_path = Path.home() / ".config" / "deemixkit" / "credentials.json"
+    
+    if config_path.exists():
+        try:
+            with open(config_path, 'r') as f:
+                config = json.load(f)
+                configured_path = config.get('paths', {}).get('deemixkit')
+                if configured_path:
+                    return Path(configured_path)
+        except Exception as e:
+            print(f"Warning: Could not load config path: {e}", file=sys.stderr)
+    
+    return default_path
+
+
 # Load collection matcher from file with dashes in name
 import importlib.util
-DEEMIXKIT = Path("/Volumes/Eksternal/Music/Tools/DeemixKit")
+DEEMIXKIT = load_deemixkit_path()
 matcher_file = DEEMIXKIT / "scripts" / "rileys-collection-matcher.py"
 
 try:
@@ -68,6 +86,10 @@ def get_spotify_token() -> Optional[str]:
                     if result.returncode == 0 and result.stdout:
                         token_data = json.loads(result.stdout)
                         return token_data.get('access_token')
+    except json.JSONDecodeError as e:
+        print(f"Error parsing Spotify token response: {e}", file=sys.stderr)
+    except subprocess.TimeoutExpired:
+        print("Error: Spotify API token request timed out", file=sys.stderr)
     except Exception as e:
         print(f"Error getting Spotify token: {e}", file=sys.stderr)
 
@@ -113,8 +135,12 @@ def get_deezer_playlist_albums(playlist_id: str) -> List[Dict]:
             url = data.get('next')
             if url:
                 time.sleep(0.2)
-    except Exception as e:
+    except requests.RequestException as e:
         print(f"Error fetching Deezer playlist: {e}", file=sys.stderr)
+    except json.JSONDecodeError as e:
+        print(f"Error parsing Deezer playlist response: {e}", file=sys.stderr)
+    except Exception as e:
+        print(f"Unexpected error fetching Deezer playlist: {e}", file=sys.stderr)
 
     return albums
 
@@ -165,8 +191,12 @@ def get_spotify_playlist_albums(playlist_id: str) -> List[Dict]:
             if url:
                 time.sleep(0.1)
 
+    except json.JSONDecodeError as e:
+        print(f"Error parsing Spotify playlist response: {e}", file=sys.stderr)
+    except subprocess.TimeoutExpired:
+        print("Error: Spotify API playlist request timed out", file=sys.stderr)
     except Exception as e:
-        print(f"Error fetching Spotify playlist: {e}", file=sys.stderr)
+        print(f"Unexpected error fetching Spotify playlist: {e}", file=sys.stderr)
 
     return albums
 

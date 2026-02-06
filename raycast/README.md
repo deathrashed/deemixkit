@@ -27,28 +27,35 @@ Or use a bulk find/replace:
 
 ```bash
 cd ~/.config/raycast/script-commands
-sed -i '' 's|/Volumes/Eksternal/Music/Tools/DeemixKit|/your/path/to/DeemixKit|g' *.sh
+sed -i '' 's|/Volumes/Eksternal/Music/Tools/DeemixKit|/your/path/to/DeemixKit|g' deemix-*.sh
 ```
+
+3. **Reload Raycast scripts**:
+- Open Raycast (Cmd + Space)
+- Type "Reload Script Commands" and press Enter
 
 ## Available Scripts
 
-| Script | Icon | Arguments | Description |
-|--------|------|-----------|-------------|
-| **Deezer to Deemix** | 🎵 | Artist, Album | Search Deezer and download |
-| **Spotify to Deemix** | 🎧 | Artist, Album | Search Spotify and download |
-| **Discography to Deemix** | 💿 | Artist, Album | Download full artist discography |
-| **Global Resolver** | 🌐 | URL (optional) | Resolve any Spotify/Deezer URL |
-| **Playlist Downloader** | 📋 | Playlist URL | Download all albums from playlist |
-| **Batch Downloader** | 📝 | Service (dropdown), File path | Download from text file |
-| **Currently Playing** | ▶️ | None | Download current Spotify track |
+All scripts are prefixed with `deemix-` for easy discovery in Raycast:
+
+| Script | Arguments | Description |
+|--------|-----------|-------------|
+| **Deemix - Deezer** | Artist, Album | Search Deezer and download |
+| **Deemix - Spotify** | Artist, Album | Search Spotify and download |
+| **Deemix - Discography** | Artist, Album | Download full artist discography |
+| **Deemix - Global** | URL (optional) | Resolve any Spotify/Deezer URL |
+| **Deemix - Playlist** | Playlist URL | Download all albums from playlist |
+| **Deemix - Text File** | Service, File path | Download from text file |
+| **Deemix - Rileys Resolver** | Playlist URL | Get only albums you don't have |
+| **Deemix - Currently Playing** | None | Download current Spotify track |
 
 ## Usage
 
 ### In Raycast
 
 1. Open Raycast (Cmd + Space)
-2. Type the script name (e.g., "Deezer", "Spotify", "Discography")
-3. Press Enter
+2. Type "deemix" to see all DeemixKit commands
+3. Select a command and press Enter
 4. Fill in the arguments in the input fields
 5. Press Enter to execute
 
@@ -56,43 +63,94 @@ sed -i '' 's|/Volumes/Eksternal/Music/Tools/DeemixKit|/your/path/to/DeemixKit|g'
 
 ```
 # Download an album from Deezer
-Raycast > "Deezer to Deemix" > Artist: Metallica > Album: Master of Puppets
+Raycast > "deemix-deezer" > Artist: Metallica > Album: Master of Puppets
 
 # Download an album from Spotify
-Raycast > "Spotify to Deemix" > Artist: Pink Floyd > Album: The Wall
+Raycast > "deemix-spotify" > Artist: Pink Floyd > Album: The Wall
 
 # Download full discography
-Raycast > "Discography to Deemix" > Artist: Radiohead > Album: OK Computer
+Raycast > "deemix-discography" > Artist: Radiohead > Album: OK Computer
 
 # Resolve a URL (or use clipboard)
-Raycast > "Global Resolver" > URL: https://open.spotify.com/album/...
+Raycast > "deemix-global" > URL: https://open.spotify.com/album/...
 
 # Download from playlist
-Raycast > "Playlist Downloader" > URL: https://open.spotify.com/playlist/...
+Raycast > "deemix-playlist" > URL: https://open.spotify.com/playlist/...
+
+# Download from text file
+Raycast > "deemix-textfile" > Service: Deezer > File: /path/to/albums.txt
+
+# Get only missing albums from playlist
+Raycast > "deemix-rileys" > URL: https://open.spotify.com/playlist/...
 
 # Download currently playing
-Raycast > "Currently Playing"
-
-# Batch download
-Raycast > "Batch Downloader" > Service: Deezer > File: /path/to/albums.txt
+Raycast > "deemix-currently-playing"
 ```
 
-## Creating Aliases
+## Script Details
 
-For shorter script names, you can create symlinks:
+### Deemix - Deezer
+- **Icon**: `links-deezer.png`
+- **Arguments**: Artist, Album
+- **Mode**: fullOutput
+- **Best for**: Quick Deezer searches (no setup required)
 
-```bash
-cd ~/.config/raycast/script-commands
-ln -s deezer-to-deemix.sh deemix.sh
-ln -s deezer-to-deemix.sh dz.sh
-ln -s spotify-to-deemix.sh sp.sh
-ln -s discography-to-deemix.sh disco.sh
-```
+### Deemix - Spotify
+- **Icon**: `links-spotify.png`
+- **Arguments**: Artist, Album
+- **Mode**: fullOutput
+- **Best for**: Spotify catalog searches (requires API credentials)
 
-Then use shorter names in Raycast:
-- `deemix` or `dz` for Deezer
-- `sp` for Spotify
-- `disco` for Discography
+### Deemix - Discography
+- **Icon**: `links-discography.png`
+- **Arguments**: Artist, Album (to identify artist)
+- **Mode**: fullOutput
+- **Best for**: Complete artist catalogs
+
+### Deemix - Global
+- **Icon**: `resolver-global.png`
+- **Arguments**: URL (optional)
+- **Mode**: fullOutput
+- **Best for**: Universal URL resolving
+- **Note**: Uses clipboard if no URL provided
+
+### Deemix - Playlist
+- **Icon**: `links-playlist.png`
+- **Arguments**: Playlist URL
+- **Mode**: fullOutput
+- **Best for**: Extracting all albums from playlists
+
+### Deemix - Text File
+- **Icon**: `links-textfile.png`
+- **Arguments**: Service (dropdown), File path
+- **Mode**: fullOutput
+- **Best for**: Bulk downloads from text files
+
+### Deemix - Rileys Resolver
+- **Icon**: `links-rileys-resolver.png`
+- **Arguments**: Playlist URL
+- **Mode**: fullOutput
+- **Best for**: Getting only albums you don't already have
+- **Note**: Requires your local music library for matching
+
+### Deemix - Currently Playing
+- **Icon**: `links-currently-playing.png`
+- **Arguments**: None
+- **Mode**: fullOutput
+- **Best for**: One-click downloads of current track
+
+## Keyboard Shortcuts
+
+Assign hotkeys in Raycast for instant access:
+
+1. Open Raycast Settings
+2. Go to Extensions → Script Commands
+3. Find a DeemixKit script
+4. Assign a hotkey (suggestions):
+   - `⌃⌥⌘D` - Deemix - Deezer
+   - `⌃⌥⌘S` - Deemix - Spotify
+   - `⌃⌥⌘G` - Deemix - Global
+   - `⌃⌥⌘P` - Deemix - Currently Playing
 
 ## Troubleshooting
 
@@ -100,10 +158,10 @@ Then use shorter names in Raycast:
 
 1. Make sure scripts are executable:
 ```bash
-chmod +x ~/.config/raycast/script-commands/*.sh
+chmod +x ~/.config/raycast/script-commands/deemix-*.sh
 ```
 
-2. Refresh Raycast scripts:
+2. Reload Raycast scripts:
 - Open Raycast
 - Type "Reload Script Commands" and run it
 
@@ -138,9 +196,14 @@ Add your Spotify API credentials:
 
 See [../docs/CREDENTIALS.md](../docs/CREDENTIALS.md) for detailed instructions.
 
+### Output in Raycast is too long
+
+The scripts use `fullOutput` mode to show progress. If you prefer silent operation, change `@raycast.mode fullOutput` to `@raycast.mode silent` in the script metadata.
+
 ## Tips
 
-- Use Raycast's **Hotkeys** feature to assign keyboard shortcuts to frequently used scripts
-- Enable **Quick Open** in script settings for faster access
-- The **Global Resolver** works with clipboard if no URL is provided - just copy a URL and run the script
-- **Currently Playing** is perfect for hotkey - one-click download of what you're listening to
+- **Type "deemix"** in Raycast to see all DeemixKit commands grouped together
+- **Use the Global resolver** with clipboard - just copy a URL and run the script
+- **Assign hotkeys** for frequently used commands like "Currently Playing"
+- **Text File mode** is great for bulk downloads - create a file with album names
+- **Rileys Resolver** prevents duplicates by checking your existing library

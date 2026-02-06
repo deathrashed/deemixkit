@@ -8,21 +8,42 @@ against Spotify album data to identify albums already in the collection.
 
 import os
 import re
+import json
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 import unicodedata
 
 
+def load_collection_path() -> Path:
+    """Load audio library path from credentials.json or use default."""
+    default_path = Path("/Volumes/Eksternal/Audio")
+    config_path = Path.home() / ".config" / "deemixkit" / "credentials.json"
+    
+    if config_path.exists():
+        try:
+            with open(config_path, 'r') as f:
+                config = json.load(f)
+                configured_path = config.get('paths', {}).get('audio_library')
+                if configured_path:
+                    return Path(configured_path)
+        except Exception:
+            pass
+    
+    return default_path
+
+
 class CollectionMatcher:
     """Handles matching Spotify albums against local music collection."""
     
-    def __init__(self, collection_path: str = "/Volumes/Eksternal/Audio"):
+    def __init__(self, collection_path: str = None):
         """
         Initialize the collection matcher.
         
         Args:
-            collection_path: Path to the local music collection
+            collection_path: Path to the local music collection (optional, loads from config if not provided)
         """
+        if collection_path is None:
+            collection_path = str(load_collection_path())
         self.collection_path = Path(collection_path)
         self.collection_cache = {}
         self._build_collection_index()

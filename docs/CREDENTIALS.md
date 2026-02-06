@@ -58,6 +58,45 @@ Currently not used by DeemixKit but available for future features.
 
 ---
 
+## 📁 Custom Paths (Optional)
+
+Some DeemixKit scripts use custom paths for your setup. These can be configured in the same `credentials.json` file.
+
+### Available Path Settings
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `paths.deemixkit` | Path to the DeemixKit installation | `/Volumes/Eksternal/Music/Tools/DeemixKit` |
+| `paths.audio_library` | Path to your music collection | `/Volumes/Eksternal/Audio` |
+
+### When to Configure Paths
+
+You only need to set these if:
+- You've installed DeemixKit in a different location
+- Your music collection is stored elsewhere
+- You're setting up DeemixKit on a new machine
+
+### Example Configuration
+
+Add the `paths` section to your `credentials.json`:
+
+```json
+{
+  "spotify": {
+    "client_id": "YOUR_SPOTIFY_CLIENT_ID_HERE",
+    "client_secret": "YOUR_SPOTIFY_CLIENT_SECRET_HERE"
+  },
+  "paths": {
+    "deemixkit": "/your/custom/path/to/DeemixKit",
+    "audio_library": "/your/custom/path/to/Music"
+  }
+}
+```
+
+**Note**: The `paths` section is optional. If not specified, the scripts will use their default values.
+
+---
+
 ## ⚙️ Setup Instructions
 
 ### Step 1: Create the Config Directory
@@ -82,11 +121,15 @@ Paste the following into the file:
   "spotify": {
     "client_id": "YOUR_SPOTIFY_CLIENT_ID_HERE",
     "client_secret": "YOUR_SPOTIFY_CLIENT_SECRET_HERE"
+  },
+  "paths": {
+    "deemixkit": "/path/to/DeemixKit",
+    "audio_library": "/path/to/Music"
   }
 }
 ```
 
-Replace the placeholder values with your actual Spotify credentials.
+Replace the placeholder values with your actual Spotify credentials and custom paths (if needed).
 
 ### Step 4: Save and Exit
 
@@ -139,6 +182,10 @@ Here's a complete example of what your `credentials.json` might look like:
     "client_id": "abc123def456ghi789jkl012mno345pq",
     "client_secret": "678rst901uvw234xyz567abc890def123ghi"
   },
+  "paths": {
+    "deemixkit": "/Volumes/Eksternal/Music/Tools/DeemixKit",
+    "audio_library": "/Volumes/Eksternal/Audio"
+  },
   "lastfm": {
     "api_key": "your_lastfm_api_key",
     "api_secret": "your_lastfm_api_secret"
@@ -159,7 +206,7 @@ Here's a complete example of what your `credentials.json` might look like:
 }
 ```
 
-**Note**: Only include credentials for services you actually use. If you only use Spotify and Deezer, you only need those sections (and Deezer doesn't even require credentials).
+**Note**: Only include credentials for services you actually use. If you only use Spotify and Deezer, you only need those sections (and Deezer doesn't even require credentials). The `paths` section is optional and only needed if you want to customize default paths.
 
 ---
 

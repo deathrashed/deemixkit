@@ -84,7 +84,7 @@ if (!trackData || !trackData.album) {
     process.exit(1);
 }
 
-const albumLink = trackData.album.external_urls.spotify;
+    const albumLink = trackData.album.external_urls.spotify;
 execSync(`printf '${albumLink}' | pbcopy`);
 
 // AppleScript to paste into Deemix

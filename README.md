@@ -339,17 +339,22 @@ ln -s /path/to/DeemixKit/raycast/*.sh ~/.config/raycast/script-commands/
 # Update DEEMIXKIT_PATH in each script to your installation path
 ```
 
+Then reload Raycast: Type "Reload Script Commands" in Raycast
+
 ### Available Scripts
+
+All scripts prefixed with `deemix-` for easy discovery:
 
 | Script | Arguments | Description |
 |--------|-----------|-------------|
-| Deezer to Deemix | Artist, Album | 🎵 Search Deezer and download |
-| Spotify to Deemix | Artist, Album | 🎧 Search Spotify and download |
-| Discography to Deemix | Artist, Album | 💿 Download full discography |
-| Global Resolver | URL (optional) | 🌐 Resolve any Spotify/Deezer URL |
-| Playlist Downloader | Playlist URL | 📋 Download all albums from playlist |
-| Batch Downloader | Service, File | 📝 Download from text file |
-| Currently Playing | None | ▶️ Download current Spotify track |
+| Deemix - Deezer | Artist, Album | <img src="./docs/icons/links-deezer.png" width="16"> Search Deezer and download |
+| Deemix - Spotify | Artist, Album | <img src="./docs/icons/links-spotify.png" width="16"> Search Spotify and download |
+| Deemix - Discography | Artist, Album | <img src="./docs/icons/links-discography.png" width="16"> Download full discography |
+| Deemix - Global | URL (optional) | <img src="./docs/icons/resolver-global.png" width="16"> Resolve any Spotify/Deezer URL |
+| Deemix - Playlist | Playlist URL | <img src="./docs/icons/links-playlist.png" width="16"> Download all albums from playlist |
+| Deemix - Text File | Service, File | <img src="./docs/icons/links-textfile.png" width="16"> Download from text file |
+| Deemix - Rileys Resolver | Playlist URL | <img src="./docs/icons/links-rileys-resolver.png" width="16"> Get only missing albums |
+| Deemix - Currently Playing | None | <img src="./docs/icons/links-currently-playing.png" width="16"> Download current track |
 
 See [raycast/README.md](raycast/README.md) for detailed setup and usage instructions.
 
@@ -443,13 +448,14 @@ DeemixKit/
 │   ├── rileys-playlist-resolver.sh
 │   └── docs/                      # Playlist-specific docs
 ├── raycast/                       # Raycast script commands
-│   ├── deezer-to-deemix.sh
-│   ├── spotify-to-deemix.sh
-│   ├── discography-to-deemix.sh
-│   ├── global-resolver.sh
-│   ├── playlist-downloader.sh
-│   ├── batch-downloader.sh
-│   ├── currently-playing.sh
+│   ├── deemix-deezer.sh
+│   ├── deemix-spotify.sh
+│   ├── deemix-discography.sh
+│   ├── deemix-global.sh
+│   ├── deemix-playlist.sh
+│   ├── deemix-textfile.sh
+│   ├── deemix-rileys.sh
+│   ├── deemix-currently-playing.sh
 │   └── README.md                  # Setup instructions
 ├── batch/                         # Batch download workflow
 │   ├── batch-downloader.sh        # CLI wrapper
