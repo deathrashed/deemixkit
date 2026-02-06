@@ -1,6 +1,12 @@
 # DeemixKit
 <div align="center">
-<img src="./docs/icons/deemixkit-icon.png" alt="DeemixKit" width="300">
+<img src="./docs/icons/deemixkit.png" alt="DeemixKit" width="300">
+<div align="center">
+<img src="./docs/icons/resolver-deezer.png" alt="DeemixKit" width="75">
+<img src="./docs/icons/resolver-spotify.png" alt="DeemixKit" width="75">
+<img src="./docs/icons/resolver-global.png" alt="DeemixKit" width="75">
+
+
 
 
 **A macOS automation toolkit for downloading music from Spotify and Deezer via Deemix**
@@ -29,7 +35,7 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 ---
 
-## ϟ Quick Start
+## <img src="./docs/icons/installer.png" alt="Deezer Logo" width="28"> Quick Start
 
 ### Prerequisites
 
@@ -37,15 +43,17 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 2. [Deemix](https://deemix.org/) desktop application.
 
-   [Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
-
 3. Python 3.7+ (for most scripts)
 
 4. Node.js 14+ (optional, for Spotify currently-playing script)
 
+   
+
+   [<img src="./docs/icons/deemix.png" alt="Deezer Logo" width="24">Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
+
 ### Installation
 
-#### ⚡ Quick Install (Recommended)
+#### <img src="./docs/icons/shell-deezer.png" alt="Deezer Logo" width="24"> Quick Install (Recommended)
 
 - Paste the following into your terminal and follow the prompts
 
@@ -65,7 +73,7 @@ See [install/README.md](install/README.md) for details.
 
 or you can also **Double-click** `install/Install DeemixKit.command`
 
-#### Manual Installation
+#### <img src="./docs/icons/shell-discography.png" alt="Deezer Logo" width="24">Manual Installation
 
 ```bash
 # Clone or download this repository
@@ -78,7 +86,7 @@ pip install requests pyperclip
 # Download Deemix from https://deemix.org and install to /Applications
 ```
 
-#### Configuration (Spotify Only)
+#### <img src="./docs/icons/shell-spotify.png" alt="Deezer Logo" width="24">Configuration (Spotify Only)
 
 <details>
 <summary>Click to expand Spotify setup</summary>
@@ -107,7 +115,7 @@ If you plan to use Spotify features, you'll need API credentials:
 
 ## ϟ Usage Examples
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/deezer-icon.png" alt="Deezer Logo" width="22"> Search Deezer Album (Fastest - No Setup)
+### <img src="./docs/icons/links-deezer.png" alt="Deezer Logo" width="24"> Search Deezer Album (Fastest - No Setup)
 
 ```bash
 # CLI
@@ -117,7 +125,7 @@ If you plan to use Spotify features, you'll need API credentials:
 osascript deezer/deezer-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/spotify.png" alt="Spotify Logo" width="22"> Search Spotify Album
+### <img src="./docs/icons/links-spotify.png" alt="Spotify Logo" width="24"> Search Spotify Album
 
 ```bash
 # CLI
@@ -127,7 +135,7 @@ osascript deezer/deezer-to-deemix.applescript
 osascript spotify/spotify-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/lp.png" alt="LP" width="24"> Download Full Discography
+### <img src="./docs/icons/links-discography.png" alt="LP" width="24"> Download Full Discography
 
 ```bash
 # Downloads all albums and EPs for an artist
@@ -137,14 +145,25 @@ osascript spotify/spotify-to-deemix.applescript
 osascript discography/discography-to-deemix.applescript
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/resolver-spotify.png" alt="Now Playing" width="24"> Download Currently Playing Track (Spotify)
+
+### <img src="./docs/icons/links-playlist.png" alt="Playlist" width="24"> Download All Albums from Playlist
 
 ```bash
-# One-click download of what you're listening to
-node spotify/currently-playing-to-deemix.js
+# Extract ALL albums from a playlist
+./playlist/playlist-downloader.sh "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
 ```
 
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/globe.png" alt="Global" width="24"> Universal URL Resolver
+### <img src="./docs/icons/links-textfile.png" alt="Batch" width="24"> Download from Text File
+
+```bash
+# Download multiple albums from a text file
+./batch/batch-downloader.sh -f albums.txt
+
+# Custom file with Spotify
+./batch/batch-downloader.sh -f my-list.txt -s spotify
+```
+
+### <img src="./docs/icons/details.png" alt="Global" width="24"> Universal URL Resolver
 
 ```bash
 # Accept ANY Spotify or Deezer URL (track, album, artist, playlist)
@@ -156,22 +175,11 @@ node spotify/currently-playing-to-deemix.js
 # Uses clipboard if no argument
 ./global/global-resolver.sh
 ```
-
-### <img src="./docs/icons/albumlist/albumlist2-icon.png" alt="Playlist" width="24"> Download All Albums from Playlist
-
-```bash
-# Extract ALL albums from a playlist
-./playlist/playlist-downloader.sh "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
-```
-
-### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/list.png" alt="Batch" width="24"> Batch Download from File
+### <img src="./docs/icons/links-currently-playing.png" alt="Now Playing" width="24"> Download Currently Playing Track (Spotify)
 
 ```bash
-# Download multiple albums from a text file
-./batch/batch-downloader.sh -f albums.txt
-
-# Custom file with Spotify
-./batch/batch-downloader.sh -f my-list.txt -s spotify
+# One-click download of what you're listening to
+node spotify/currently-playing-to-deemix.js
 ```
 
 ---
