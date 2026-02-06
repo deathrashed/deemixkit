@@ -28,13 +28,13 @@ A complete Deezer-to-Deemix automation toolkit with two interfaces: a lightweigh
 ### CLI (Bash Wrapper)
 
 ```bash
-.//deezer-to-deemix.sh "Metallica" "Master of Puppets"
+./deezer-to-deemix.sh "Metallica" "Master of Puppets"
 ```
 
 ### GUI (AppleScript Dialog)
 
 ```bash
-osascript .//deezer-to-deemix.applescript
+osascript ./deezer-to-deemix.applescript
 ```
 
 ## Interface Comparison
@@ -55,14 +55,14 @@ osascript .//deezer-to-deemix.applescript
 ### Usage
 
 ```bash
-.//deezer-to-deemix.sh "Artist Name" "Album Name"
+./deezer-to-deemix.sh "Artist Name" "Album Name"
 ```
 
 **Examples**:
 ```bash
-.//deezer-to-deemix.sh "Pink Floyd" "The Wall"
-.//deezer-to-deemix.sh "The Beatles" "Abbey Road"
-.//deezer-to-deemix.sh "Radiohead" "OK Computer"
+./deezer-to-deemix.sh "Pink Floyd" "The Wall"
+./deezer-to-deemix.sh "The Beatles" "Abbey Road"
+./deezer-to-deemix.sh "Radiohead" "OK Computer"
 ```
 
 **Requirements**: 2 arguments (artist and album)
@@ -82,7 +82,7 @@ osascript .//deezer-to-deemix.applescript
 ```
 Prompt user for Artist: $KMVAR_Artist
 Prompt user for Album: $KMVAR_Album
-Execute Shell Script: /path/to/DeemixKit/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+Execute Shell Script: /path/to/DeemixKit/deezer/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
 ```
 
 **From Another Script**:
@@ -90,14 +90,14 @@ Execute Shell Script: /path/to/DeemixKit/deezer-to-deemix.sh "$KMVAR_Artist" "$K
 #!/bin/bash
 ARTIST="Metallica"
 ALBUM="Master of Puppets"
-/path/to/DeemixKit/deezer-to-deemix.sh "$ARTIST" "$ALBUM"
+/path/to/DeemixKit/deezer/deezer-to-deemix.sh "$ARTIST" "$ALBUM"
 ```
 
 **Raycast Script**:
 ```bash
 #!/bin/bash
 # Raycast will prompt for parameters
-/path/to/DeemixKit/deezer-to-deemix.sh "$artist" "$album"
+/path/to/DeemixKit/deezer/deezer-to-deemix.sh "$artist" "$album"
 ```
 
 ### Source Code
@@ -110,7 +110,7 @@ ARTIST="$1"
 ALBUM="$2"
 
 # Call Deezer resolver and copy to clipboard
-python3 "/path/to/DeemixKit/deezer-album-resolver.py" --band "$ARTIST" --album "$ALBUM"
+python3 "/path/to/DeemixKit/deezer/deezer-resolver.py" --band "$ARTIST" --album "$ALBUM"
 
 # Check if resolver succeeded
 if [ $? -ne 0 ]; then
@@ -122,7 +122,7 @@ fi
 sleep 0.5
 
 # Execute AppleScript to paste into Deemix
-osascript "/path/to/DeemixKit/paste-to-deemix.applescript"
+osascript "/path/to/DeemixKit/scripts/paste-to-deemix.applescript"
 
 exit $?
 ```
@@ -132,7 +132,7 @@ exit $?
 ### Usage
 
 ```bash
-osascript .//deezer-to-deemix.applescript
+osascript ./deezer-to-deemix.applescript
 ```
 
 **Input Format**: Dialog prompts for "Artist - Album"
@@ -167,7 +167,7 @@ osascript .//deezer-to-deemix.applescript
 
 **Keyboard Maestro Macro**:
 ```
-Execute Shell Script: osascript "/path/to/DeemixKit/Deezer to Deemix.applescript"
+Execute Shell Script: osascript "/path/to/DeemixKit/deezer/deezer-to-deemix.applescript"
 ```
 
 **Add to Dock** (as .app):
@@ -180,9 +180,9 @@ Execute Shell Script: osascript "/path/to/DeemixKit/Deezer to Deemix.applescript
 ```applescript
 #!/usr/bin/env osascript
 
-set scriptDir to "/Users/rd/Scripts/Riley/Audio/DeemixKit"
-set pythonScript to scriptDir & "/deezer-album-resolver.py"
-set pasteScript to scriptDir & "/paste-to-deemix.applescript"
+set scriptDir to "/path/to/DeemixKit"
+set pythonScript to scriptDir & "/deezer/deezer-resolver.py"
+set pasteScript to scriptDir & "/scripts/paste-to-deemix.applescript"
 
 -- Single dialog with both inputs
 try
@@ -261,7 +261,7 @@ end splitString
 
 **Example 1: Classic metal album**
 ```bash
-.//deezer-to-deemix.sh "Metallica" "Master of Puppets"
+./deezer-to-deemix.sh "Metallica" "Master of Puppets"
 # Output: ✅ Copied to clipboard: Metallica - Master of Puppets
 #         https://www.deezer.com/album/...
 #         (Deemix opens and downloads automatically)
@@ -273,7 +273,7 @@ end splitString
 albums=("Metallica:Master of Puppets" "Pink Floyd:The Wall" "The Beatles:Abbey Road")
 for album in "${albums[@]}"; do
   IFS=':' read -r artist name <<< "$album"
-  .//deezer-to-deemix.sh "$artist" "$name"
+  ./deezer-to-deemix.sh "$artist" "$name"
   sleep 2  # Wait between downloads
 done
 ```

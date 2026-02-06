@@ -63,14 +63,14 @@ chmod +x .//currently-playing-spotify-to-deemix.js
 ### From Keyboard Maestro
 
 ```
-Execute Shell Script: node "/path/to/DeemixKit/Currently Playing Spotify to Deemix.js"
+Execute Shell Script: node "/path/to/DeemixKit/spotify/currently-playing-to-deemix.js"
 ```
 
 ### From Raycast Script
 
 ```bash
 #!/bin/bash
-node "/path/to/DeemixKit/Currently Playing Spotify to Deemix.js"
+node "/path/to/DeemixKit/spotify/currently-playing-to-deemix.js"
 ```
 
 ## Script Details
@@ -183,7 +183,7 @@ Create a macro that triggers on a hotkey:
 
 ```
 Display Text: "Checking Spotify..."
-Execute Shell Script: node "/path/to/DeemixKit/Currently Playing Spotify to Deemix.js"
+Execute Shell Script: node "/path/to/DeemixKit/spotify/currently-playing-to-deemix.js"
 Display Text: "Album added to Deemix!"
 ```
 

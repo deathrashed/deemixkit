@@ -80,7 +80,7 @@ osascript .//spotify-to-deemix.applescript
 ```
 Prompt user for Artist: $KMVAR_Artist
 Prompt user for Album: $KMVAR_Album
-Execute Shell Script: /path/to/DeemixKit/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+Execute Shell Script: /path/to/DeemixKit/spotify/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
 ```
 
 **From Another Script**:
@@ -88,14 +88,14 @@ Execute Shell Script: /path/to/DeemixKit/spotify-to-deemix.sh "$KMVAR_Artist" "$
 #!/bin/bash
 ARTIST="Metallica"
 ALBUM="Master of Puppets"
-/path/to/DeemixKit/spotify-to-deemix.sh "$ARTIST" "$ALBUM"
+/path/to/DeemixKit/spotify/spotify-to-deemix.sh "$ARTIST" "$ALBUM"
 ```
 
 **Raycast Script**:
 ```bash
 #!/bin/bash
 # Raycast will prompt for parameters
-/path/to/DeemixKit/spotify-to-deemix.sh "$artist" "$album"
+/path/to/DeemixKit/spotify/spotify-to-deemix.sh "$artist" "$album"
 ```
 
 ### Source Code
@@ -108,7 +108,7 @@ ARTIST="$1"
 ALBUM="$2"
 
 # Call Spotify resolver and copy to clipboard
-python3 "/path/to/DeemixKit/spotify-album-resolver.py" --band "$ARTIST" --album "$ALBUM"
+python3 "/path/to/DeemixKit/spotify/spotify-resolver.py" --band "$ARTIST" --album "$ALBUM"
 
 # Check if resolver succeeded
 if [ $? -ne 0 ]; then
@@ -120,7 +120,7 @@ fi
 sleep 0.5
 
 # Execute AppleScript to paste into Deemix
-osascript "/path/to/DeemixKit/paste-to-deemix.applescript"
+osascript "/path/to/DeemixKit/scripts/paste-to-deemix.applescript"
 
 exit $?
 ```
@@ -164,7 +164,7 @@ osascript .//spotify-to-deemix.applescript
 
 **Keyboard Maestro Macro**:
 ```
-Execute Shell Script: osascript "/path/to/DeemixKit/Spotify to Deemix.applescript"
+Execute Shell Script: osascript "/path/to/DeemixKit/spotify/spotify-to-deemix.applescript"
 ```
 
 **Add to Dock** (as .app):

@@ -41,7 +41,7 @@ A macro that prompts for artist and album name, resolves the Deezer album link, 
 
 2. **Execute Shell Script**
    ```bash
-   python3 /path/to/DeemixKit/deezer-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
+   python3 /path/to/DeemixKit/deezer/deezer-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
    ```
    - Stop macro and notify on failure
 
@@ -98,7 +98,7 @@ A macro that prompts for artist and album name, resolves the Spotify album link,
 
 2. **Execute Shell Script**
    ```bash
-   python3 /path/to/DeemixKit/spotify-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
+   python3 /path/to/DeemixKit/spotify/spotify-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
    ```
    - Stop macro and notify on failure
 
@@ -154,7 +154,7 @@ Uses the `deezer-to-deemix.sh` wrapper which handles both resolution and pasting
 
 2. **Execute Shell Script**
    ```bash
-   /path/to/DeemixKit/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+   /path/to/DeemixKit/deezer/deezer-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
    ```
    - Stop macro and notify on failure
 
@@ -173,7 +173,7 @@ Uses the `spotify-to-deemix.sh` wrapper which handles both resolution and pastin
 
 2. **Execute Shell Script**
    ```bash
-   /path/to/DeemixKit/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+   /path/to/DeemixKit/spotify/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
    ```
    - Stop macro and notify on failure
 
@@ -196,11 +196,15 @@ Uses the `spotify-to-deemix.sh` wrapper which handles both resolution and pastin
 
 | Script | Path | Purpose |
 |--------|------|---------|
-| Deezer Resolver | `/path/to/DeemixKit/deezer-resolver.py` | Resolve Deezer album links |
-| Spotify Resolver | `/path/to/DeemixKit/spotify-resolver.py` | Resolve Spotify album links |
-| Deezer Wrapper | `/path/to/DeemixKit/deezer-to-deemix.sh` | Full Deezer workflow |
-| Spotify Wrapper | `/path/to/DeemixKit/spotify-to-deemix.sh` | Full Spotify workflow |
-| Paste Utility | `/path/to/DeemixKit/paste-to-deemix.applescript` | Paste clipboard to Deemix |
+| Deezer Resolver | `/path/to/DeemixKit/deezer/deezer-resolver.py` | Resolve Deezer album links |
+| Spotify Resolver | `/path/to/DeemixKit/spotify/spotify-resolver.py` | Resolve Spotify album links |
+| Discography Resolver | `/path/to/DeemixKit/discography/discography-resolver.py` | Resolve full discography |
+| Global Resolver | `/path/to/DeemixKit/global/global-resolver.py` | Universal URL resolver |
+| Deezer Wrapper | `/path/to/DeemixKit/deezer/deezer-to-deemix.sh` | Full Deezer workflow |
+| Spotify Wrapper | `/path/to/DeemixKit/spotify/spotify-to-deemix.sh` | Full Spotify workflow |
+| Discography Wrapper | `/path/to/DeemixKit/discography/discography-to-deemix.sh` | Full discography workflow |
+| Global Wrapper | `/path/to/DeemixKit/global/global-resolver.sh` | Universal resolver workflow |
+| Paste Utility | `/path/to/DeemixKit/scripts/paste-to-deemix.applescript` | Paste clipboard to Deemix |
 
 ## AppleScript Breakdown
 

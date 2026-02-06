@@ -1,6 +1,9 @@
 # Local tools and cache
 .crush/
 
+# SpecStory AI chat history
+.specstory/
+
 # Credentials and secrets - NEVER commit these!
 credentials.json
 .env
@@ -56,6 +59,8 @@ wheels/
 # IDE
 .vscode/
 .idea/
+.cursor/
+.cursorindexingignore
 *.swp
 *.swo
 *~

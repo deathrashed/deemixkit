@@ -23,7 +23,7 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 - 🔍 **Flexible Search**: Search by artist, album, or currently playing track
 - 📋 **Clipboard Automation**: Automatic clipboard management for seamless workflows
 - 🖥️ **Multiple Interfaces**: CLI, GUI dialogs, and Keyboard Maestro macros
-- 💿 **Bulk Operations**: Download entire artist discographies
+- 💿 **Bulk Operations**: Download entire artist discographies, playlists, batch lists
 - ⚡ **One-Click Workflows**: Download what you're currently listening to instantly
 - 🚫 **No External Dependencies**: Uses built-in macOS tools and standard Python libraries
 
@@ -63,7 +63,7 @@ It will **automatically**:
 
 See [install/README.md](install/README.md) for details.
 
-or you can also **Double-click** `install/Install DeemixKit.command` 
+or you can also **Double-click** `install/Install DeemixKit.command`
 
 #### Manual Installation
 
@@ -144,11 +144,50 @@ osascript discography/discography-to-deemix.applescript
 node spotify/currently-playing-to-deemix.js
 ```
 
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/globe.png" alt="Global" width="24"> Universal URL Resolver
+
+```bash
+# Accept ANY Spotify or Deezer URL (track, album, artist, playlist)
+./global/global-resolver.sh "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+
+# Artist URLs automatically fetch ALL albums
+./global/global-resolver.sh "https://www.deezer.com/artist/27"
+
+# Uses clipboard if no argument
+./global/global-resolver.sh
+```
+
+### <img src="./docs/icons/albumlist/albumlist2-icon.png" alt="Playlist" width="24"> Download All Albums from Playlist
+
+```bash
+# Extract ALL albums from a playlist
+./playlist/playlist-downloader.sh "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+```
+
+### <img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/list.png" alt="Batch" width="24"> Batch Download from File
+
+```bash
+# Download multiple albums from a text file
+./batch/batch-downloader.sh -f albums.txt
+
+# Custom file with Spotify
+./batch/batch-downloader.sh -f my-list.txt -s spotify
+```
+
 ---
 
 ## ϟ What's Included
 
-#### Core Resolvers
+#### Universal Tools
+
+| Tool | Purpose | Input |
+|------|---------|-------|
+| **Global Resolver** | Accept ANY Spotify/Deezer URL | Track/Album/Artist/Playlist URL |
+| **Batch Downloader** | Bulk download from text file | `albums.txt` file |
+| **Playlist Downloader** | Extract ALL albums from playlist | Playlist URL |
+| **Riley's Playlist Resolver** | Get only albums you DON'T have | Playlist URL + collection match |
+
+#### Service-Specific Tools
 
 | Script | Purpose | Credentials |
 |--------|---------|-------------|
@@ -163,6 +202,9 @@ node spotify/currently-playing-to-deemix.js
 | **Deezer to Deemix** | `deezer/deezer-to-deemix.sh` | `deezer/deezer-to-deemix.applescript` | Search Deezer → Auto-paste to Deemix |
 | **Spotify to Deemix** | `spotify/spotify-to-deemix.sh` | `spotify/spotify-to-deemix.applescript` | Search Spotify → Auto-paste to Deemix |
 | **Discography to Deemix** | `discography/discography-to-deemix.sh` | `discography/discography-to-deemix.applescript` | Get all albums → Bulk paste to Deemix |
+| **Global Resolver** | `global/global-resolver.sh` | `global/global-resolver.applescript` | Any URL → Auto-detect → Deemix |
+| **Playlist Downloader** | `playlist/playlist-downloader.sh` | `playlist/playlist-downloader.applescript` | Playlist → All albums → Deemix |
+| **Batch Downloader** | `batch/batch-downloader.sh` | `batch/batch-downloader.applescript` | File list → All albums → Deemix |
 
 #### Keyboard Maestro Macros
 
@@ -172,6 +214,7 @@ Comprehensive macros for [Keyboard Maestro](https://www.keyboardmaestro.com/) in
 |-------|-------------|
 | **Download** | Activate Deemix, trigger download with hotkey |
 | **Discography for Deemix** | Full discography downloader - prompts for artist/album, fetches entire catalog, auto-pastes to Deemix |
+| **Global Resolver** | Universal resolver - accepts any URL, auto-detects type, sends to Deemix |
 
 <details>
 <summary>Click to expand Discography Macro Details</summary>
@@ -201,19 +244,33 @@ The **Discography for Deemix** macro provides a complete workflow:
 |--------|---------|----------|
 | `spotify/currently-playing-to-deemix.js` | Download currently playing Spotify track | Node.js |
 | `scripts/paste-to-deemix.applescript` | Paste clipboard into Deemix | AppleScript |
+| `scripts/rileys-collection-matcher.py` | Fuzzy matching against local collection | Python |
 
 ---
 
 ## ϟ Workflow Comparison
 
-| Feature | Deezer | Spotify | Discography | Currently Playing |
-|---------|---------|----------|-------------|-------------------|
-| **Setup Required** | None ⚡ | API credentials | None | API credentials |
-| **CLI Available** | ✅ | ✅ | ✅ | ❌ |
-| **GUI Available** | ✅ | ✅ | ✅ | ❌ |
-| **Auto-Paste to Deemix** | ✅ | ✅ | ✅ | ✅ |
-| **Bulk Download** | ❌ | ❌ | ✅ (all albums) | ❌ |
-| **One-Click** | ❌ | ❌ | ❌ | ✅ |
+| Feature | Deezer | Spotify | Discography | Global | Playlist | Batch |
+|---------|---------|----------|-------------|--------|----------|-------|
+| **Setup Required** | None ⚡ | API credentials | None | None for Deezer | None for Deezer | None for Deezer |
+| **CLI Available** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **GUI Available** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Auto-Paste to Deemix** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Bulk Download** | ❌ | ❌ | ✅ (all albums) | ✅ (artist URLs) | ✅ (all albums) | ✅ (file list) |
+| **URL Input** | ❌ | ❌ | ❌ | ✅ (any URL) | ✅ (playlist) | ❌ |
+
+---
+
+## ϟ Quick Decision Guide
+
+```
+Found a URL? → Global Resolver (any Spotify/Deezer URL)
+Found a playlist? → Playlist Downloader (all) or Riley's Playlist Resolver (missing only)
+Have a list of albums? → Batch Downloader
+Want full discography? → Discography to Deemix
+Currently playing? → Currently Playing to Deemix
+Search by name? → Deezer to Deemix (fastest) or Spotify to Deemix
+```
 
 ---
 
@@ -327,7 +384,9 @@ pip install pyperclip
 DeemixKit/
 ├── README.md                      # This file
 ├── LICENSE                        # MIT License
-├── scripts/paste-to-deemix.applescript  # Shared paste utility
+├── scripts/                       # Utility scripts
+│   ├── paste-to-deemix.applescript  # Shared paste utility
+│   └── rileys-collection-matcher.py  # Fuzzy matching module
 ├── docs/                          # Documentation
 │   ├── CREDENTIALS.md             # API credentials setup
 │   ├── AGENTS.md                  # Developer guide for AI agents
@@ -350,15 +409,29 @@ DeemixKit/
 │   ├── discography-to-deemix.sh   # CLI wrapper
 │   ├── discography-to-deemix.applescript
 │   └── docs/                      # Discography-specific docs
-├── scripts/                       # Utility scripts
-│   └── cleanup-docs.sh
+├── global/                        # Universal resolver
+│   ├── global-resolver.py         # Python resolver
+│   ├── global-resolver.sh         # CLI wrapper
+│   ├── global-resolver.applescript
+│   └── docs/                      # Global-specific docs
+├── playlist/                      # Playlist workflows
+│   ├── playlist-downloader.py     # Generic playlist tool
+│   ├── playlist-downloader.sh
+│   ├── rileys-playlist-resolver.py # Personal tool with filtering
+│   ├── rileys-playlist-resolver.sh
+│   └── docs/                      # Playlist-specific docs
+├── batch/                         # Batch download workflow
+│   ├── batch-downloader.sh        # CLI wrapper
+│   ├── batch-downloader.applescript
+│   ├── albums.txt                 # Example file
+│   └── docs/                      # Batch-specific docs
 ├── install/                       # Automated installer
 │   ├── Install DeemixKit.command  # Double-click to install
 │   ├── install.sh                 # Installer script
 │   └── README.md                  # Installation guide
 ├── examples/                      # Example configurations
 │   └── credentials.json.example
-└── macros/                        # Ready-to-use Keyboard Maestro macros (Download, Discography, etc.)
+└── macros/                        # Ready-to-use Keyboard Maestro macros
 ```
 
 </details>
@@ -412,6 +485,9 @@ Add to your `~/.zshrc` or `~/.bash_profile`:
 alias deemix='./deezer/deezer-to-deemix.sh'
 alias spoti='./spotify/spotify-to-deemix.sh'
 alias disco='./discography/discography-to-deemix.sh'
+alias global='./global/global-resolver.sh'
+alias playlist='./playlist/playlist-downloader.sh'
+alias batch='./batch/batch-downloader.sh'
 alias now='node spotify/currently-playing-to-deemix.js'
 ```
 
@@ -420,6 +496,9 @@ Then use short commands:
 deemix "Artist" "Album"
 spoti "Artist" "Album"
 disco "Artist" "Album"
+global "https://open.spotify.com/artist/..."
+playlist "https://open.spotify.com/playlist/..."
+batch -f albums.txt
 now
 ```
 

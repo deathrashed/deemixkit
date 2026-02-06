@@ -28,45 +28,45 @@ A comprehensive automation toolkit that bridges Spotify and Deezer with Deemix f
 
 ```bash
 # Using Bash wrapper (auto-pastes into Deemix)
-.//spotify-to-deemix.sh "Metallica" "Master of Puppets"
+./spotify/spotify-to-deemix.sh "Metallica" "Master of Puppets"
 
 # Using AppleScript dialog
-osascript .//spotify-to-deemix.applescript
+osascript ./spotify/spotify-to-deemix.applescript
 
 # Using Python resolver (clipboard only, no Deemix paste)
-python3 .//spotify-resolver.py --band "Metallica" --album "Master of Puppets"
+python3 ./spotify/spotify-resolver.py --band "Metallica" --album "Master of Puppets"
 ```
 
 ### Search Deezer & Download
 
 ```bash
 # Using Bash wrapper (auto-pastes into Deemix)
-.//deezer-to-deemix.sh "Metallica" "Master of Puppets"
+./deezer/deezer-to-deemix.sh "Metallica" "Master of Puppets"
 
 # Using AppleScript dialog
-osascript .//deezer-to-deemix.applescript
+osascript ./deezer/deezer-to-deemix.applescript
 
 # Using Python resolver (clipboard only, no Deemix paste)
-python3 .//deezer-resolver.py --band "Metallica" --album "Master of Puppets"
+python3 ./deezer/deezer-resolver.py --band "Metallica" --album "Master of Puppets"
 ```
 
 ### Download Currently Playing
 
 ```bash
-node .//currently-playing-spotify-to-deemix.js
+node ./spotify/currently-playing-spotify-to-deemix.js
 ```
 
 ### Download Full Discography
 
 ```bash
 # Using Bash wrapper (auto-pastes into Deemix)
-.//discography-to-deemix.sh "America" "Ventura Highway"
+./discography/discography-to-deemix.sh "America" "Ventura Highway"
 
 # Using AppleScript dialog
-osascript .//discography-to-deemix.applescript
+osascript ./discography/discography-to-deemix.applescript
 
 # Using Python resolver (URLs only, no Deemix paste)
-python3 .//discography-resolver.py --band "Radiohead" --album "OK Computer"
+python3 ./discography/discography-resolver.py --band "Radiohead" --album "OK Computer"
 ```
 
 ## Scripts in DeemixKit
@@ -110,33 +110,44 @@ python3 .//discography-resolver.py --band "Radiohead" --album "OK Computer"
 ## Directory Structure
 
 ```
-.//
-├── Core Resolvers
-│   ├── spotify-resolver.py                # Spotify API search (single album)
-│   ├── deezer-resolver.py                 # Deezer API search (single album)
-│   └── discography-resolver.py            # Deezer API search (full discography)
-├── Complete Workflows
-│   ├── CLI Wrappers (Bash)
-│   │   ├── spotify-to-deemix.sh           # Spotify resolution + auto-paste
-│   │   ├── deezer-to-deemix.sh            # Deezer resolution + auto-paste
-│   │   └── discography-to-deemix.sh       # Full discography + auto-paste
-│   └── GUI Apps (AppleScript)
-│       ├── spotify-to-deemix.applescript  # Dialog-based Spotify search
-│       ├── deezer-to-deemix.applescript   # Dialog-based Deezer search
-│       ├── discography-to-deemix.applescript # Dialog-based discography
-│       └── paste-to-deemix.applescript    # Clipboard → Deemix pasting utility
-├── Special Scripts
-│   └── currently-playing-spotify-to-deemix.js  # Currently playing track (Node.js)
-└── Documentation (Consolidated)
-    ├── DeemixKit.md                       (This file - master overview)
-    ├── Keyboard Maestro DeemixKit.md      (Keyboard Maestro macro setup)
-    ├── Spotify to Deemix.md               (Bash wrapper + AppleScript dialog)
-    ├── Deezer to Deemix.md                (Bash wrapper + AppleScript dialog)
-    ├── Discography to Deemix.md           (Discography resolver + workflows)
-    ├── Spotify Resolver.md                (Core Python resolver)
-    ├── Deezer Resolver.md                 (Core Python resolver)
-    ├── Paste to Deemix.md                 (Utility details)
-    └── Currently Playing Spotify to Deemix.md (Node.js script)
+DeemixKit/
+├── spotify/                              # Spotify workflows
+│   ├── spotify-resolver.py               # Python resolver
+│   ├── spotify-to-deemix.sh              # CLI wrapper
+│   ├── spotify-to-deemix.applescript     # GUI dialog
+│   └── currently-playing-to-deemix.js    # Currently playing track
+├── deezer/                               # Deezer workflows
+│   ├── deezer-resolver.py                # Python resolver
+│   ├── deezer-to-deemix.sh               # CLI wrapper
+│   └── deezer-to-deemix.applescript      # GUI dialog
+├── discography/                          # Discography workflow
+│   ├── discography-resolver.py           # Python resolver
+│   ├── discography-to-deemix.sh          # CLI wrapper
+│   └── discography-to-deemix.applescript # GUI dialog
+├── global/                               # Universal resolver
+│   ├── global-resolver.py
+│   ├── global-resolver.sh
+│   └── global-resolver.applescript
+├── playlist/                             # Playlist workflows
+│   ├── playlist-downloader.py
+│   ├── playlist-downloader.sh
+│   └── rileys-playlist-resolver.py
+├── batch/                                # Batch download
+│   ├── batch-downloader.sh
+│   ├── batch-downloader.applescript
+│   └── albums.txt
+├── scripts/                              # Utility scripts
+│   ├── paste-to-deemix.applescript       # Shared paste utility
+│   └── rileys-collection-matcher.py      # Fuzzy matching module
+├── docs/                                 # Documentation
+│   ├── CREDENTIALS.md
+│   ├── AGENTS.md
+│   ├── DeemixKit.md                      (This file)
+│   ├── Keyboard Maestro DeemixKit.md
+│   └── Shell Functions.md
+├── macros/                               # Keyboard Maestro macro files
+└── examples/                             # Example configurations
+    └── credentials.json.example
 ```
 
 ## Workflow Comparison
@@ -185,49 +196,49 @@ Spotify (AppleScript) → API Search → Clipboard → Deemix (automated)
 
 ```bash
 # Spotify - copies URL to clipboard
-python3 .//spotify-resolver.py --band "Metallica" --album "Master of Puppets"
+python3 ./spotify/spotify-resolver.py --band "Metallica" --album "Master of Puppets"
 
 # Deezer - copies URL to clipboard
-python3 .//deezer-resolver.py --band "Metallica" --album "Master of Puppets"
+python3 ./deezer/deezer-resolver.py --band "Metallica" --album "Master of Puppets"
 ```
 
 ### 2. Search & Download (Fastest)
 
 ```bash
 # Spotify
-.//spotify-to-deemix.sh "Metallica" "Master of Puppets"
+./spotify/spotify-to-deemix.sh "Metallica" "Master of Puppets"
 
 # Deezer
-.//deezer-to-deemix.sh "Metallica" "Master of Puppets"
+./deezer/deezer-to-deemix.sh "Metallica" "Master of Puppets"
 ```
 
 ### 3. Search & Download (User-Friendly Dialog)
 
 ```bash
 # Spotify
-osascript .//spotify-to-deemix.applescript
+osascript ./spotify/spotify-to-deemix.applescript
 
 # Deezer
-osascript .//deezer-to-deemix.applescript
+osascript ./deezer/deezer-to-deemix.applescript
 ```
 
 ### 4. Download Current Track
 
 ```bash
-node .//currently-playing-spotify-to-deemix.js
+node ./spotify/currently-playing-spotify-to-deemix.js
 ```
 
 ### 5. Download Full Discography
 
 ```bash
 # Bash wrapper (handles bands with same name like "America", "Boston")
-.//discography-to-deemix.sh "America" "Ventura Highway"
+./discography/discography-to-deemix.sh "America" "Ventura Highway"
 
 # AppleScript dialog
-osascript .//discography-to-deemix.applescript
+osascript ./discography/discography-to-deemix.applescript
 
 # Resolver only (get URLs without sending to Deemix)
-python3 .//discography-resolver.py -b "Radiohead" -a "OK Computer"
+python3 ./discography/discography-resolver.py -b "Radiohead" -a "OK Computer"
 ```
 
 ### 6. Use with Keyboard Maestro
@@ -237,14 +248,14 @@ See `Keyboard Maestro DeemixKit.md` for complete macro setup instructions.
 **Quick Example - Shell Script Macro:**
 ```
 Prompt user for: Artist, Album
-Execute Shell: /path/to/DeemixKit/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
+Execute Shell: /path/to/DeemixKit/spotify/spotify-to-deemix.sh "$KMVAR_Artist" "$KMVAR_Album"
 Display: "Album added to Deemix!"
 ```
 
 **Alternative - Python Resolver + AppleScript:**
 ```
 Prompt user for: Artist, Album
-Execute Shell: python3 /path/to/DeemixKit/deezer-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
+Execute Shell: python3 /path/to/DeemixKit/deezer/deezer-resolver.py --band "$KMVAR_Artist" --album "$KMVAR_Album"
 Execute AppleScript: (paste-to-deemix logic)
 Display: "Added to Deemix."
 ```
@@ -254,7 +265,7 @@ Display: "Added to Deemix."
 Create a script:
 ```bash
 #!/bin/bash
-osascript "/path/to/DeemixKit/Spotify to Deemix.applescript"
+osascript "/path/to/DeemixKit/spotify/spotify-to-deemix.applescript"
 ```
 
 ### 8. Save AppleScript as Dock App
@@ -358,9 +369,10 @@ Each script has comprehensive documentation. Choose the doc for your use case:
 
 ## Related Directories
 
-- `/path/to/DeemixKit` - Other audio automation scripts
-- `~/Scripts/Riley/` - All Riley's automation scripts
+- `/path/to/DeemixKit` - Location of this toolkit
+- `~/.config/deemixkit/` - Unified credentials file
 - `~/.config/spotify-resolver/` - Spotify resolver config
+- `~/.config/deezer-resolver/` - Deezer resolver config
 - `~/.local/log/spotify-resolver/` - Spotify resolver logs
 - `~/.local/log/deezer-resolver/` - Deezer resolver logs
 - `~/.local/log/discography-resolver/` - Discography resolver logs
