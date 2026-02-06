@@ -4172,6 +4172,134 @@
 						<key>Title</key>
 						<string>https://github.com/deathrashed/deemixkit</string>
 					</dict>
+					<dict>
+						<key>ActionColor</key>
+						<string>Red</string>
+						<key>ActionName</key>
+						<string>Ensure Deemix.app is Running!</string>
+						<key>ActionUID</key>
+						<integer>999421321</integer>
+						<key>Actions</key>
+						<array>
+							<dict>
+								<key>ActionColor</key>
+								<string>Yellow</string>
+								<key>ActionName</key>
+								<string>Reminder.</string>
+								<key>ActionUID</key>
+								<integer>999421136</integer>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>StyledText</key>
+								<data>
+								cnRmZAAAAAAD
+								AAAAAgAAAAcA
+								AABUWFQucnRm
+								AQAAAC6wAQAA
+								KwAAAAEAAACo
+								AQAAe1xydGYx
+								XGFuc2lcYW5z
+								aWNwZzEyNTJc
+								Y29jb2FydGYy
+								ODIyClxjb2Nv
+								YXRleHRzY2Fs
+								aW5nMFxjb2Nv
+								YXBsYXRmb3Jt
+								MHtcZm9udHRi
+								bFxmMFxmc3dp
+								c3NcZmNoYXJz
+								ZXQwIEhlbHZl
+								dGljYS1Cb2xk
+								O30Ke1xjb2xv
+								cnRibDtccmVk
+								MjU1XGdyZWVu
+								MjU1XGJsdWUy
+								NTU7XHJlZDBc
+								Z3JlZW4wXGJs
+								dWUwO30Ke1wq
+								XGV4cGFuZGVk
+								Y29sb3J0Ymw7
+								O1xjc3NyZ2Jc
+								YzBcYzBcYzA7
+								fQpcZGVmdGFi
+								NzIwClxwYXJk
+								XHBhcmRlZnRh
+								YjcyMFxzYTMy
+								MVxwYXJ0aWdo
+								dGVuZmFjdG9y
+								MAoKXGYwXGJc
+								ZnM0OCBcY2Yw
+								IFxleHBuZDBc
+								ZXhwbmR0dzBc
+								a2VybmluZzAK
+								Rm9yIHRoZXNl
+								IHNjcmlwdHMg
+								dG8gcnVuIHNt
+								b290aGx5IHdp
+								dGggbm8gXCc5
+								MXdlaXJkbmVz
+								c1wnOTJcCkl0
+								cyBiZXN0IHRv
+								IGhhdmUgdGhl
+								IERlZW1peCBB
+								cHBsaWNhdGlv
+								biBydW5uaW5n
+								LlwKfQEAAAAj
+								AAAAAQAAAAcA
+								AABUWFQucnRm
+								EAAAAIkphWm2
+								AQAAAAAAAAAA
+								AAA=
+								</data>
+								<key>Title</key>
+								<string>→</string>
+							</dict>
+							<dict>
+								<key>ActionColor</key>
+								<string>Green</string>
+								<key>ActionName</key>
+								<string>Open Application</string>
+								<key>ActionUID</key>
+								<integer>999421209</integer>
+								<key>DisplayKind</key>
+								<string>None</string>
+								<key>HonourFailureSettings</key>
+								<true/>
+								<key>IncludeStdErr</key>
+								<false/>
+								<key>IncludedVariables</key>
+								<array>
+									<string>9999</string>
+								</array>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>ExecuteShellScript</string>
+								<key>Path</key>
+								<string></string>
+								<key>Source</key>
+								<string>Nothing</string>
+								<key>Text</key>
+								<string>open -a "Deemix"</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>TrimResultsNew</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+							</dict>
+						</array>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Group</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
 				</array>
 				<key>CreationDate</key>
 				<real>792000511.87509894</real>
@@ -4611,7 +4739,7 @@
 				3AAAwGw=
 				</data>
 				<key>ModificationDate</key>
-				<real>792001190.38139403</real>
+				<real>792027790.62736106</real>
 				<key>Name</key>
 				<string>- Details -</string>
 				<key>Triggers</key>
@@ -4623,7 +4751,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

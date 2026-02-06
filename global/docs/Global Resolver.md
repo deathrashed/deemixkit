@@ -645,8 +645,9 @@ Variable: TargetURL
 ```
 
 **Action 2:** Execute Shell Script
+
 ```bash
-cd /Volumes/Eksternal/Music/Tools/DeemixKit && ./global/global-resolver.sh "$KMVAR_TargetURL"
+/path/to/DeemixKit/global/global-resolver.sh "$KMVAR_TargetURL"
 ```
 
 ## Configuration

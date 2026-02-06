@@ -1123,12 +1123,10 @@
 						<string>DisplayBriefly</string>
 						<key>ActionUID</key>
 						<integer>999413405</integer>
-						<key>IsDisclosed</key>
-						<false/>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Album link copied to your Clipboard.</string>
+						<string>%Variable%Album% by %Variable%Artist% link copied to clipboard.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -1563,7 +1561,7 @@
 				//MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs
 				</data>
 				<key>ModificationDate</key>
-				<real>791992824.49166</real>
+				<real>792010827.36968005</real>
 				<key>Name</key>
 				<string>Resolver - Spotify</string>
 				<key>Triggers</key>
@@ -1590,7 +1588,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

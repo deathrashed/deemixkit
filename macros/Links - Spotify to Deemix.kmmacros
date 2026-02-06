@@ -3610,6 +3610,8 @@
 						<array>
 							<string>9999</string>
 						</array>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>ExecuteShellScript</string>
 						<key>Path</key>
@@ -3637,7 +3639,7 @@
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Copied.</string>
+						<string>%Variable%Album% link copied.</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
@@ -3679,7 +3681,7 @@
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Added to Deemix.</string>
+						<string>%Variable%Album% by %Variable%Artist% added to Deemix queue.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -4070,7 +4072,7 @@
 				AAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992737.86684406</real>
+				<real>792028908.91341305</real>
 				<key>Name</key>
 				<string>Links - Spotify to Deemix</string>
 				<key>Triggers</key>
@@ -4087,7 +4089,7 @@
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>6656</integer>
+						<integer>4864</integer>
 					</dict>
 				</array>
 				<key>UID</key>
@@ -4097,7 +4099,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

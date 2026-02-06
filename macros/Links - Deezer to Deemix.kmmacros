@@ -3708,7 +3708,7 @@
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Copied.</string>
+						<string>%Variable%Album% link copied.</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
@@ -3770,7 +3770,7 @@ end tell</string>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Added to Deemix.</string>
+						<string>%Variable%Album% by %Variable%Artist% added to Deemix queue.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -4176,7 +4176,7 @@ end tell</string>
 				B5IAAP2R///7ov///aMAAAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992845.05412102</real>
+				<real>792028902.34940505</real>
 				<key>Name</key>
 				<string>Links - Deezer to Deemix</string>
 				<key>Triggers</key>
@@ -4193,7 +4193,7 @@ end tell</string>
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>6656</integer>
+						<integer>4864</integer>
 					</dict>
 				</array>
 				<key>UID</key>
@@ -4203,7 +4203,7 @@ end tell</string>
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

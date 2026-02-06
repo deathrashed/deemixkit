@@ -1286,7 +1286,7 @@
 				B5IAAP2R///7ov///aMAAAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992803.85304105</real>
+				<real>792028921.48356295</real>
 				<key>Name</key>
 				<string>Links - Currently Playing to Deemix</string>
 				<key>Triggers</key>
@@ -1299,11 +1299,11 @@
 						<key>FireType</key>
 						<string>Pressed</string>
 						<key>KeyCode</key>
-						<integer>1</integer>
+						<integer>2</integer>
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>768</integer>
+						<integer>4864</integer>
 					</dict>
 				</array>
 				<key>UID</key>
@@ -1313,7 +1313,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

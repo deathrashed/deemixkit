@@ -372,6 +372,8 @@
 						<array>
 							<string>9999</string>
 						</array>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>ExecuteShellScript</string>
 						<key>Path</key>
@@ -960,7 +962,7 @@
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Album link copied to your Clipboard.</string>
+						<string>%Variable%Album% by %Variable%Artist% link copied to clipboard.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -1385,7 +1387,7 @@
 				AAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992833.026492</real>
+				<real>792028859.29846001</real>
 				<key>Name</key>
 				<string>Resolver - Deezer</string>
 				<key>Triggers</key>
@@ -1412,7 +1414,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

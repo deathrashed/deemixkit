@@ -372,6 +372,8 @@
 						<array>
 							<string>9999</string>
 						</array>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>ExecuteShellScript</string>
 						<key>Path</key>
@@ -397,6 +399,8 @@
 						<key>ActionUID</key>
 						<integer>999416401</integer>
 						<key>IsActive</key>
+						<false/>
+						<key>IsDisclosed</key>
 						<false/>
 						<key>MacroActionType</key>
 						<string>Comment</string>
@@ -463,10 +467,12 @@
 						<string>DisplayBriefly</string>
 						<key>ActionUID</key>
 						<integer>999413422</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Album added to Deemix queue.</string>
+						<string>%Variable%Album% by %Variable%Artist% added to Deemix queue.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -760,7 +766,7 @@
 				/aMAAAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992757.17051399</real>
+				<real>792028879.262519</real>
 				<key>Name</key>
 				<string>Shell - Spotify Links</string>
 				<key>Triggers</key>
@@ -787,7 +793,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

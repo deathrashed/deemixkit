@@ -2588,7 +2588,7 @@
 				AAD9kf//+6L///2jAAAD3AAAwGw=
 				</data>
 				<key>ModificationDate</key>
-				<real>791992851.33440197</real>
+				<real>792028896.252689</real>
 				<key>Name</key>
 				<string>Links - Discography to Deemix</string>
 				<key>Triggers</key>
@@ -2605,7 +2605,7 @@
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>6656</integer>
+						<integer>4864</integer>
 					</dict>
 				</array>
 				<key>UID</key>
@@ -2615,7 +2615,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

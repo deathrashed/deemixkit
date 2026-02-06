@@ -400,6 +400,8 @@
 						<integer>999416183</integer>
 						<key>IsActive</key>
 						<false/>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>Comment</string>
 						<key>StyledText</key>
@@ -489,10 +491,12 @@
 						<string>DisplayBriefly</string>
 						<key>ActionUID</key>
 						<integer>999413416</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Discography added to Deemix queue.</string>
+						<string>All available album links for %Variable%Artist% copied to clipboard.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -779,7 +783,7 @@
 				JgAAB5IAAP2R///7ov///aMAAAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>791992763.74121201</real>
+				<real>792028875.04229403</real>
 				<key>Name</key>
 				<string>Shell - Discography Links</string>
 				<key>Triggers</key>
@@ -806,7 +810,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

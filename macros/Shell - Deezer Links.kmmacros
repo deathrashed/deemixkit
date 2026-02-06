@@ -372,6 +372,8 @@
 						<array>
 							<string>9999</string>
 						</array>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>ExecuteShellScript</string>
 						<key>Path</key>
@@ -465,10 +467,12 @@
 						<string>DisplayBriefly</string>
 						<key>ActionUID</key>
 						<integer>999413419</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>Album added to Deemix queue.</string>
+						<string>%Variable%Album% by %Variable%Artist% added to Deemix queue.</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -759,7 +763,7 @@
 				AAeSAAD9kf//+6L///2jAAAD3AAAwGw=
 				</data>
 				<key>ModificationDate</key>
-				<real>791992770.23625505</real>
+				<real>792028869.86306</real>
 				<key>Name</key>
 				<string>Shell - Deezer Links</string>
 				<key>Triggers</key>
@@ -786,7 +790,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>

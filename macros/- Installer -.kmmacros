@@ -1835,7 +1835,7 @@
 				AP2R///7ov///aMAAAPcAADAbA==
 				</data>
 				<key>ModificationDate</key>
-				<real>792001145.12516105</real>
+				<real>792027804.33620501</real>
 				<key>Name</key>
 				<string>- Installer -</string>
 				<key>Triggers</key>
@@ -1847,7 +1847,7 @@
 		<key>Modifiers</key>
 		<integer>4864</integer>
 		<key>Name</key>
-		<string>Music - Deemix</string>
+		<string>Music - DeemixKit</string>
 		<key>PaletteUnderMouse</key>
 		<false/>
 		<key>Theme</key>
