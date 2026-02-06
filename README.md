@@ -1,13 +1,13 @@
 # DeemixKit
+
 <div align="center">
-<img src="./docs/icons/deemixkit.png" alt="DeemixKit" width="300">
-<div align="center">
-<img src="./docs/icons/resolver-deezer.png" alt="DeemixKit" width="75">
-<img src="./docs/icons/resolver-spotify.png" alt="DeemixKit" width="75">
-<img src="./docs/icons/resolver-global.png" alt="DeemixKit" width="75">
-
-
-
+  <img src="./docs/icons/deemixkit.png" alt="DeemixKit" width="300">
+  <div align="center">
+    <img src="./docs/icons/resolver-deezer.png" alt="DeemixKit" width="75">
+    <img src="./docs/icons/resolver-spotify.png" alt="DeemixKit" width="75">
+    <img src="./docs/icons/resolver-global.png" alt="DeemixKit" width="75">
+  </div>
+</div>
 
 **A macOS automation toolkit for downloading music from Spotify and Deezer via Deemix**
 
@@ -17,7 +17,6 @@
 
 *Search albums from Spotify/Deezer → Auto-download via Deemix*
 
-</div>
 
 ##  What is DeemixKit?
 
@@ -41,15 +40,13 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
 
 1. **macOS** (required for AppleScript automation)
 
-2. [Deemix](https://deemix.org/) desktop application.
+2. Python 3.7+ (for most scripts)
 
-3. Python 3.7+ (for most scripts)
+3. Node.js 14+ (optional, for Spotify currently-playing script)
 
-4. Node.js 14+ (optional, for Spotify currently-playing script)
+4. [Deemix](https://deemix.org/) desktop application.
 
-   
-
-   [<img src="./docs/icons/deemix.png" alt="Deezer Logo" width="24">Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
+   [<img src="./docs/icons/deemix.png" alt="Deezer Logo" width="45">Click this to directly Download](https://deathrashed.short.gy/deemix) or go to [GitHub](https://github.com/bambanah/deemix/releases)
 
 ### Installation
 
