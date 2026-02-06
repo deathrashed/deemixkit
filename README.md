@@ -322,15 +322,30 @@ See `docs/Keyboard Maestro DeemixKit.md` for detailed macro examples and the mac
 <details>
 <summary><img src="https://raw.githubusercontent.com/deathrashed/iconography/main/color/misc/raycast.png" alt="Raycast" width="22"> Raycast Integration</summary>
 
-Create a Raycast script:
+**Ready-to-use Raycast scripts included** in `raycast/` folder!
+
+### Quick Setup
 
 ```bash
-#!/bin/bash
-cd /path/to/deemixkit
-osascript deezer/deezer-to-deemix.applescript
+# Symlink all scripts to Raycast
+ln -s /path/to/DeemixKit/raycast/*.sh ~/.config/raycast/script-commands/
+
+# Update DEEMIXKIT_PATH in each script to your installation path
 ```
 
-Save as `deemix-search.sh` in your Raycast scripts directory.
+### Available Scripts
+
+| Script | Arguments | Description |
+|--------|-----------|-------------|
+| Deezer to Deemix | Artist, Album | 🎵 Search Deezer and download |
+| Spotify to Deemix | Artist, Album | 🎧 Search Spotify and download |
+| Discography to Deemix | Artist, Album | 💿 Download full discography |
+| Global Resolver | URL (optional) | 🌐 Resolve any Spotify/Deezer URL |
+| Playlist Downloader | Playlist URL | 📋 Download all albums from playlist |
+| Batch Downloader | Service, File | 📝 Download from text file |
+| Currently Playing | None | ▶️ Download current Spotify track |
+
+See [raycast/README.md](raycast/README.md) for detailed setup and usage instructions.
 
 </details>
 
@@ -420,6 +435,15 @@ DeemixKit/
 │   ├── rileys-playlist-resolver.py # Personal tool with filtering
 │   ├── rileys-playlist-resolver.sh
 │   └── docs/                      # Playlist-specific docs
+├── raycast/                       # Raycast script commands
+│   ├── deezer-to-deemix.sh
+│   ├── spotify-to-deemix.sh
+│   ├── discography-to-deemix.sh
+│   ├── global-resolver.sh
+│   ├── playlist-downloader.sh
+│   ├── batch-downloader.sh
+│   ├── currently-playing.sh
+│   └── README.md                  # Setup instructions
 ├── batch/                         # Batch download workflow
 │   ├── batch-downloader.sh        # CLI wrapper
 │   ├── batch-downloader.applescript
