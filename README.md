@@ -355,6 +355,9 @@ See [raycast/README.md](raycast/README.md) for detailed setup and usage instruct
 
 </details>
 
+---
+
+## ϟ Additional
 
 <details>
 <summary>ϟ Troubleshooting</summary>
