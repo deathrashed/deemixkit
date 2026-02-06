@@ -355,7 +355,6 @@ See [raycast/README.md](raycast/README.md) for detailed setup and usage instruct
 
 </details>
 
----
 
 <details>
 <summary>ϟ Troubleshooting</summary>
@@ -396,7 +395,6 @@ pip install pyperclip
 
 </details>
 
----
 
 <details>
 <summary>ϟ Project Structure</summary>
@@ -546,8 +544,6 @@ done
 ```
 
 </details>
-
----
 
 <details>
 <summary>ϟ Acknowledgments</summary>
