@@ -51,7 +51,7 @@ DeemixKit is a collection of automation scripts that bridge popular music servic
     [<img src="./docs/icons/deemix.png" alt="Download" width="100">](https://deathrashed.short.gy/deemix)
 ### Installation
 
-#### <img src="./docs/icons/shell-deezer.png" alt="Deezer Logo" width="24"> Quick Install (Recommended)
+#### <img src="./docs/icons/shell-deezer.png" alt="Deezer Logo" width="20"> Quick Install (Recommended)
 
 - Paste the following into your terminal and follow the prompts
 
@@ -71,7 +71,7 @@ See [install/README.md](install/README.md) for details.
 
 or you can also **Double-click** `install/Install DeemixKit.command`
 
-#### <img src="./docs/icons/shell-discography.png" alt="Deezer Logo" width="24">Manual Installation
+#### <img src="./docs/icons/shell-discography.png" alt="Deezer Logo" width="20">Manual Installation
 
 ```bash
 # Clone or download this repository
@@ -84,7 +84,7 @@ pip install requests pyperclip
 # Download Deemix from https://deemix.org and install to /Applications
 ```
 
-#### <img src="./docs/icons/shell-spotify.png" alt="Deezer Logo" width="24">Configuration (Spotify Only)
+#### <img src="./docs/icons/shell-spotify.png" alt="Deezer Logo" width="20">Configuration (Spotify Only)
 
 <details>
 <summary>Click to expand Spotify setup</summary>
